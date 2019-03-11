@@ -1,0 +1,108 @@
+.pricing-guide strong {
+    font-weight: 900;
+}
+
+.pricing-guide h1 {
+    font-family: Lato;
+    font-size: 25px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 24px;
+}
+
+.pricing-guide p {
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.64;
+    letter-spacing: normal;
+    text-align: center;
+    color: #2c2723;
+}
+
+.pricing-guide .price-boxes {
+    text-align: center;
+}
+
+.pricing-guide .price-box {
+    width: 287px;
+    display: inline-block;
+    background-color: #fff;
+    margin: 25px;
+    padding: 27px;
+}
+
+.pricing-guide .price-box h2 {
+    font-family: Lato;
+    font-size: 35px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: -0.4px;
+    text-align: center;
+    color: #000000;
+}
+
+.pricing-guide .price-box h3 {
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.75;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: #000000;
+}
+
+.pricing-guide .price-box ul {
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.31;
+    letter-spacing: normal;
+    text-align: left;
+    color: #2c2723;
+}
+
+.pricing-guide .price-box button {
+    color: #fff;
+    height: 44px;
+    border-radius: 22px;
+    width: 115px;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 32px;
+    border: solid 0.5px #1d1d1d;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+
+.pricing-guide .price-box.upgrade button {
+    background-color: #83b3a7;
+    border: 0;
+}
+
+.pricing-guide .price-box li {
+    padding-left: 20px;
+}
+
+.pricing-guide .price-box .fa-li {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.pricing-guide .price-box.upgrade .fa-li {
+    color: #83b3a7;
+}
