@@ -16,6 +16,8 @@ export class PaymentOverview {
         ).then(({json}) => {
             this.publicKey = json['public_key']
             this.monthlyPlanId = json['monthly_plan_id']
+            this.customerId = json['customer_id']
+            this.customerEmail = json['customer_email']
             return whenReady()
         }).then(() => {
             this.render()
@@ -55,6 +57,8 @@ export class PaymentOverview {
               // tab between form submission and the redirect.
               successUrl: '${window.location.href}',
               cancelUrl: '${window.location.href}',
+              clientReferenceId: '${this.customerId}',
+              customerEmail: '${this.customerEmail}'
             })
             .then(function (result) {
               if (result.error) {
