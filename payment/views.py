@@ -12,7 +12,7 @@ def get_stripe_details_js(request):
             status=403
         )
     response = {}
-    customer = Customer.objects.get_or_create(subscriber=request.user)
+    customer, created = Customer.objects.get_or_create(subscriber=request.user)
     response['customer_id'] = customer.id
     response['customer_email'] = customer.email
     if settings.STRIPE_LIVE_MODE:
