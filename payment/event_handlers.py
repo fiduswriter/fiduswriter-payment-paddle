@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib.auth.models import User
 
 from djstripe.models import Subscription
@@ -21,5 +23,9 @@ def session_succeeded(event):
             subscription.customer and
             not subscription.customer.subscriber
         ):
-            subscription.customer.subscriber_id = user_id
-            subscription.customer.save()
+            customer = subscription.customer
+            customer.subscriber_id = user_id
+            customer.metadata = {} or customer.metadata
+            customer.metadata['djstripe_subscriber'] = user_id
+            customer.metadata['updated'] = datetime.datetime.now()
+            customer.save()
