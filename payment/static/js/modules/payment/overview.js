@@ -1,5 +1,5 @@
 import {advertisementTemplate} from "./templates"
-import {whenReady, baseBodyTemplate, setDocTitle, ensureCSS, postJson} from "../common"
+import {whenReady, baseBodyTemplate, setDocTitle, ensureCSS, postJson, post} from "../common"
 import {SiteMenu} from "../menu"
 import {FeedbackTab} from "../feedback"
 
@@ -47,7 +47,7 @@ export class PaymentOverview {
 
         subscriptionButton.addEventListener('click', () => {
             if (this.subscribed) {
-                postJson(
+                post(
                     '/payment/cancel_subscription/'
                 ).then(
                     () => this.init()
@@ -66,7 +66,7 @@ export class PaymentOverview {
                         items: [{plan: this.monthlyPlanId, quantity: 1}],
                         successUrl: window.location.href,
                         cancelUrl: window.location.href,
-                        clientReferenceId: toString(this.userId)
+                        clientReferenceId: String(this.userId)
                     }).then(function (result) {
                         if (result.error) {
                             const displayError = document.getElementById('error-message')
