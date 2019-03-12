@@ -32,7 +32,7 @@ export class PaymentOverview {
     render() {
         document.body = document.createElement('body')
         document.body.innerHTML = baseBodyTemplate({
-            contents: advertisementTemplate({subscribed}),
+            contents: advertisementTemplate({subscribed: this.subscribed}),
             username: this.user.username,
             staticUrl: this.staticUrl
         })
