@@ -12,7 +12,7 @@ def get_stripe_details_js(request):
             status=403
         )
     response = {}
-    response['user_email'] = request.user.email
+    response['user_id'] = request.user.id
     if settings.STRIPE_LIVE_MODE:
         response['public_key'] = settings.STRIPE_LIVE_PUBLIC_KEY
         response['monthly_plan_id'] = settings.STRIPE_LIVE_MONTHLY_PLAN_ID
