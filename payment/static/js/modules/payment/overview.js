@@ -46,33 +46,36 @@ export class PaymentOverview {
         const subscriptionButton = document.querySelector('#subscription')
 
         subscriptionButton.addEventListener('click', () => {
-            if (this.subscription) {
+            if (this.subscribed) {
                 postJson(
                     '/payment/cancel_subscription/'
                 ).then(
                     () => this.init()
                 )
             } else {
+                // We load Stripe.js directly from stripe, as that is a
+                // requirement from stripe. We wait with loading it until the
+                // user has agreed to sign up so that we don't share any
+                // tracking data with third parties - which would likely be in
+                // conflict with the GDPR.
                 const stripeScript = document.createElement('script')
-                stripeScript.src = "https://js.stripe.com/v3"
-                document.head.appendChild(stripeScript)
-                const script = document.createElement('script')
-                script.text = `
-                    var stripe = Stripe('${this.publicKey}', {
+                stripeScript.onload = () => {
+                    window.Stripe(this.publicKey, {
                         betas: ['checkout_beta_4']
-                    });
-                    stripe.redirectToCheckout({
-                        items: [{plan: '${this.monthlyPlanId}', quantity: 1}],
-                        successUrl: '${window.location.href}',
-                        cancelUrl: '${window.location.href}',
-                        clientReferenceId: '${this.userId}'
+                    }).redirectToCheckout({
+                        items: [{plan: this.monthlyPlanId, quantity: 1}],
+                        successUrl: window.location.href,
+                        cancelUrl: window.location.href,
+                        clientReferenceId: toString(this.userId)
                     }).then(function (result) {
                         if (result.error) {
-                            var displayError = document.getElementById('error-message');
-                            displayError.textContent = result.error.message;
+                            const displayError = document.getElementById('error-message')
+                            displayError.textContent = result.error.message
                         }
-                    });`
-                document.head.appendChild(script)
+                    })
+                }
+                document.head.appendChild(stripeScript)
+                stripeScript.src = "https://js.stripe.com/v3"
             }
         })
     }
