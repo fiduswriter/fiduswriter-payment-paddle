@@ -46,13 +46,19 @@ export class PaymentPage {
                     post(
                         '/payment/reactivate_subscription/'
                     ).then(
-                        () => this.init()
+                        () => {
+                            delete this.app.subscription
+                            this.init()
+                        }
                     )
                 } else {
                     post(
                         '/payment/cancel_subscription/'
                     ).then(
-                        () => this.init()
+                        () => {
+                            delete this.app.subscription
+                            this.init()
+                        }
                     )
                 }
 
