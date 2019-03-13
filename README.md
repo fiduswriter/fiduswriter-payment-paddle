@@ -28,7 +28,9 @@ Installation
     > STRIPE_LIVE_MONTHLY_PLAN_ID = ""
 
 6. Run:
-    python manage.py migrate
-    python manage.py djstripe_sync_plans_from_stripe
+
+    > python manage.py migrate
+
+    > python manage.py djstripe_sync_plans_from_stripe
     
 DO NOT RUN python manage.py djstripe_init_customers!!!
