@@ -18,6 +18,7 @@ export class PaymentOverview {
             this.monthlyPlanId = json['monthly_plan_id']
             this.userId = json['user_id']
             this.subscribed = json['subscribed']
+            this.subscriptionEnd = json['subscription_end'] ? json['subscription_end'] : false
             ensureCSS([
                 'payment.css'
             ], this.staticUrl)
@@ -32,7 +33,10 @@ export class PaymentOverview {
     render() {
         document.body = document.createElement('body')
         document.body.innerHTML = baseBodyTemplate({
-            contents: advertisementTemplate({subscribed: this.subscribed}),
+            contents: advertisementTemplate({
+                subscribed: this.subscribed,
+                subscriptionEnd: this.subscriptionEnd
+            }),
             username: this.user.username,
             staticUrl: this.staticUrl
         })
@@ -47,11 +51,20 @@ export class PaymentOverview {
 
         subscriptionButton.addEventListener('click', () => {
             if (this.subscribed) {
-                post(
-                    '/payment/cancel_subscription/'
-                ).then(
-                    () => this.init()
-                )
+                if (this.subscriptionEnd) {
+                    post(
+                        '/payment/reactivate_subscription/'
+                    ).then(
+                        () => this.init()
+                    )
+                } else {
+                    post(
+                        '/payment/cancel_subscription/'
+                    ).then(
+                        () => this.init()
+                    )
+                }
+
             } else {
                 // We load Stripe.js directly from stripe, as that is a
                 // requirement from stripe. We wait with loading it until the

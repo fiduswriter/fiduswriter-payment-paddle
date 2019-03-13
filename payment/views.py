@@ -17,6 +17,8 @@ def get_stripe_details_js(request):
     customer = Customer.objects.filter(subscriber=request.user).first()
     if customer:
         if customer.has_any_active_subscription():
+            if customer.subscription.cancel_at_period_end:
+                response['subscription_end'] = current_period_end.timestamp()
             subscribed = True
         else:
             # The customer's subscription has run out, so we just delete the
@@ -34,12 +36,29 @@ def get_stripe_details_js(request):
 
 @login_required
 def cancel_subscription_js(request):
+    status = 200
     if not request.is_ajax() or request.method != 'POST':
+        status = 403
         return JsonResponse(
             {},
-            status=403
+            status=status
         )
     customer = Customer.objects.filter(subscriber=request.user).first()
-    if customer:
-        customer.delete()
-    return JsonResponse({}, status=204)
+    if customer and customer.subscription:
+        customer.subscription.cancel()
+        status = 204
+    return JsonResponse({}, status=status)
+
+@login_required
+def reactivate_subscription_js(request):
+    status = 200
+    if not request.is_ajax() or request.method != 'POST':
+        status = 403
+        return JsonResponse(
+            {},
+            status=status
+        )
+    customer = Customer.objects.filter(subscriber=request.user).first()
+    if customer and customer.subscription:
+        customer.subscription.reactivate()
+    return JsonResponse({}, status=status)
