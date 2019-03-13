@@ -1,8 +1,12 @@
 import datetime
 
 from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
-from djstripe.models import Subscription
+from document.models import Document
+
+from djstripe.models import Subscription, Customer
 from djstripe import webhooks
 
 
@@ -29,3 +33,15 @@ def session_succeeded(event):
             customer.metadata['djstripe_subscriber'] = user_id
             customer.metadata['updated'] = datetime.datetime.now()
             customer.save()
+
+@receiver(post_save, sender=Document)
+def handler_save_document(sender, instance, created, **kwargs):
+    if created:
+        forbidden = True
+        customer = Customer.objects.filter(subscriber=instance.owner).first()
+        if customer and customer.has_any_active_subscription():
+            forbidden = False
+        if instance.owner.owner.count() < 5:
+            forbidden = False
+        if forbidden:
+            instance.delete()
