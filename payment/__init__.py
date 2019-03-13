@@ -7,11 +7,7 @@ default_app_config = "payment.PaymentAppConfig"
 
 
 class PaymentAppConfig(AppConfig):
-	"""
-	An AppConfig which loads event handlers once Django is ready.
-	"""
+    name = "payment"
 
-	name = "payment"
-
-	def ready(self):
-		from . import event_handlers  # noqa: Register the event handlers
+    def ready(self):
+        from . import event_handlers

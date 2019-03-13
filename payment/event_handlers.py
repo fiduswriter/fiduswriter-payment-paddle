@@ -34,14 +34,20 @@ def session_succeeded(event):
             customer.metadata['updated'] = datetime.datetime.now()
             customer.save()
 
+
 @receiver(post_save, sender=Document)
 def handler_save_document(sender, instance, created, **kwargs):
     if created:
         forbidden = True
-        customer = Customer.objects.filter(subscriber=instance.owner).first()
-        if customer and customer.has_any_active_subscription():
+        if instance.owner.is_staff:
             forbidden = False
-        if instance.owner.owner.count() < 5:
+        elif instance.owner.owner.count() < 5:
             forbidden = False
+        else:
+            customer = Customer.objects.filter(
+                subscriber=instance.owner
+            ).first()
+            if customer and customer.has_any_active_subscription():
+                forbidden = False
         if forbidden:
             instance.delete()

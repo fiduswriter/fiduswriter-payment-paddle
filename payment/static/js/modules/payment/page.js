@@ -1,9 +1,9 @@
 import {advertisementTemplate} from "./templates"
-import {whenReady, baseBodyTemplate, setDocTitle, ensureCSS, postJson, post} from "../common"
+import {whenReady, baseBodyTemplate, setDocTitle, ensureCSS, post} from "../common"
 import {SiteMenu} from "../menu"
 import {FeedbackTab} from "../feedback"
 
-export class PaymentOverview {
+export class PaymentPage {
     constructor({app, user, staticUrl}) {
         this.app = app
         this.user = user
@@ -11,14 +11,8 @@ export class PaymentOverview {
     }
 
     init() {
-        postJson(
-            '/payment/get_stripe_details/'
-        ).then(({json}) => {
-            this.publicKey = json['public_key']
-            this.monthlyPlanId = json['monthly_plan_id']
-            this.userId = json['user_id']
-            this.subscribed = json['subscribed']
-            this.subscriptionEnd = json['subscription_end'] ? json['subscription_end'] : false
+        this.app.getSubscription().then(subscription => {
+            this.subscription = subscription
             ensureCSS([
                 'payment.css'
             ], this.staticUrl)
@@ -33,10 +27,7 @@ export class PaymentOverview {
     render() {
         document.body = document.createElement('body')
         document.body.innerHTML = baseBodyTemplate({
-            contents: advertisementTemplate({
-                subscribed: this.subscribed,
-                subscriptionEnd: this.subscriptionEnd
-            }),
+            contents: advertisementTemplate(this.subscription),
             username: this.user.username,
             staticUrl: this.staticUrl
         })
@@ -50,8 +41,8 @@ export class PaymentOverview {
         const subscriptionButton = document.querySelector('#subscription')
 
         subscriptionButton.addEventListener('click', () => {
-            if (this.subscribed) {
-                if (this.subscriptionEnd) {
+            if (this.subscription.subscribed) {
+                if (this.subscription.subscriptionEnd) {
                     post(
                         '/payment/reactivate_subscription/'
                     ).then(
@@ -73,14 +64,14 @@ export class PaymentOverview {
                 // conflict with the GDPR.
                 const stripeScript = document.createElement('script')
                 stripeScript.onload = () => {
-                    window.Stripe(this.publicKey, {
+                    window.Stripe(this.subscription.publicKey, {
                         betas: ['checkout_beta_4']
                     }).redirectToCheckout({
-                        items: [{plan: this.monthlyPlanId, quantity: 1}],
+                        items: [{plan: this.subscription.monthlyPlanId, quantity: 1}],
                         successUrl: window.location.href,
                         cancelUrl: window.location.href,
-                        clientReferenceId: String(this.userId)
-                    }).then(function (result) {
+                        clientReferenceId: String(this.user.id)
+                    }).then(result => {
                         if (result.error) {
                             const displayError = document.getElementById('error-message')
                             displayError.textContent = result.error.message

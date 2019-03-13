@@ -12,13 +12,14 @@ def get_stripe_details_js(request):
             status=403
         )
     response = {}
-    response['user_id'] = request.user.id
+    response['staff'] = request.user.is_staff
     subscribed = False
     customer = Customer.objects.filter(subscriber=request.user).first()
     if customer:
         if customer.has_any_active_subscription():
             if customer.subscription.cancel_at_period_end:
-                response['subscription_end'] = current_period_end.timestamp()
+                response['subscription_end'] = \
+                    customer.subscription.current_period_end.timestamp()
             subscribed = True
         else:
             # The customer's subscription has run out, so we just delete the
@@ -34,6 +35,7 @@ def get_stripe_details_js(request):
         response['monthly_plan_id'] = settings.STRIPE_TEST_MONTHLY_PLAN_ID
     return JsonResponse(response, status=200)
 
+
 @login_required
 def cancel_subscription_js(request):
     status = 200
@@ -48,6 +50,7 @@ def cancel_subscription_js(request):
         customer.subscription.cancel()
         status = 204
     return JsonResponse({}, status=status)
+
 
 @login_required
 def reactivate_subscription_js(request):
