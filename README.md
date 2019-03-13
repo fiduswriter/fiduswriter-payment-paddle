@@ -11,14 +11,21 @@ Installation
 5. Add settings in configuration.py:
 
 
-    STRIPE_LIVE_MODE = False  # Change to True in production
-    STRIPE_LIVE_PUBLIC_KEY = ""
-    STRIPE_LIVE_SECRET_KEY = ""
-    STRIPE_TEST_PUBLIC_KEY = ""
-    STRIPE_TEST_SECRET_KEY = ""
-    DJSTRIPE_WEBHOOK_SECRET = ""
-    STRIPE_TEST_MONTHLY_PLAN_ID = ""
-    STRIPE_LIVE_MONTHLY_PLAN_ID = ""
+    > STRIPE_LIVE_MODE = False  # Change to True in production
+    
+    > STRIPE_LIVE_PUBLIC_KEY = ""
+    
+    > STRIPE_LIVE_SECRET_KEY = ""
+    
+    > STRIPE_TEST_PUBLIC_KEY = ""
+    
+    > STRIPE_TEST_SECRET_KEY = ""
+    
+    > DJSTRIPE_WEBHOOK_SECRET = ""
+    
+    > STRIPE_TEST_MONTHLY_PLAN_ID = ""
+    
+    > STRIPE_LIVE_MONTHLY_PLAN_ID = ""
 
 6. Run:
     python manage.py migrate
