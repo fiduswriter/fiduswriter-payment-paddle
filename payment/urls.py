@@ -18,7 +18,7 @@ urlpatterns = [
     ),
     url(
         '^reactivate_subscription/$',
-        views.cancel_subscription_js,
+        views.reactivate_subscription_js,
         name='reactivate_subscription'
     )
 ]
