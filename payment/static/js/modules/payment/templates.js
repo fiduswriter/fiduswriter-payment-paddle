@@ -1,6 +1,6 @@
 import {localizeDate} from "../common"
 
-export const advertisementTemplate = ({subscribed, subscriptionEnd}) => `
+export const advertisementTemplate = ({subscribed, subscriptionEnd, noUser = false}) => `
 <div class="pricing-guide">
     <h1>${gettext('Pricing Guide')}</h1>
     <p>
@@ -14,11 +14,13 @@ export const advertisementTemplate = ({subscribed, subscriptionEnd}) => `
             <h2>${gettext('Free Plan')}</h2>
             <button ${ subscribed && !subscriptionEnd ? 'id="subscription"' : ''}>
             ${
-                subscribed ?
-                    subscriptionEnd ?
-                        gettext('Downgrade on ') + localizeDate(subscriptionEnd*1000, 'sortable-date') :
-                        gettext('Downgrade') :
-                    gettext('Current')
+                noUser ?
+                    gettext('Default') :
+                    subscribed ?
+                        subscriptionEnd ?
+                            gettext('Downgrade on ') + localizeDate(subscriptionEnd*1000, 'sortable-date') :
+                            gettext('Downgrade') :
+                        gettext('Current')
             }
             </button>
             <ul class="fa-ul">
@@ -33,11 +35,13 @@ export const advertisementTemplate = ({subscribed, subscriptionEnd}) => `
             <h2>${gettext('7 €/month')}</h2>
             <button ${ subscribed && !subscriptionEnd ? '' : 'id="subscription"'}>
             ${
-                subscribed ?
-                    subscriptionEnd ?
-                        gettext('Reactivate') :
-                        gettext('Current') :
-                    gettext('Upgrade')
+                noUser ?
+                    gettext('Premium') :
+                    subscribed ?
+                        subscriptionEnd ?
+                            gettext('Reactivate') :
+                            gettext('Current') :
+                        gettext('Upgrade')
             }
             </button>
             <ul class="fa-ul">

@@ -106,3 +106,7 @@
 .pricing-guide .price-box.upgrade .fa-li {
     color: #83b3a7;
 }
+
+div.star {
+  display: none;
+}
