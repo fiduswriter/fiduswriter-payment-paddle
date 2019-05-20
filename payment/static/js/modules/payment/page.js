@@ -31,7 +31,7 @@ export class PaymentPage {
             username: this.user.username,
             staticUrl: this.staticUrl
         })
-        setDocTitle(gettext('Plan overview'))
+        setDocTitle(gettext('Plan overview'), this.app)
         const feedbackTab = new FeedbackTab({staticUrl: this.staticUrl})
         feedbackTab.init()
         this.bind()
