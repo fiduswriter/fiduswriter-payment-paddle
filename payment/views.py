@@ -5,7 +5,7 @@ from djstripe.models import Customer
 
 
 @login_required
-def get_stripe_details_js(request):
+def get_stripe_details(request):
     if not request.is_ajax() or request.method != 'POST':
         return JsonResponse(
             {},
@@ -37,7 +37,7 @@ def get_stripe_details_js(request):
 
 
 @login_required
-def cancel_subscription_js(request):
+def cancel_subscription(request):
     status = 200
     if not request.is_ajax() or request.method != 'POST':
         status = 403
@@ -53,7 +53,7 @@ def cancel_subscription_js(request):
 
 
 @login_required
-def reactivate_subscription_js(request):
+def reactivate_subscription(request):
     status = 200
     if not request.is_ajax() or request.method != 'POST':
         status = 403
