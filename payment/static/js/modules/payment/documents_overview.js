@@ -11,18 +11,18 @@ export class PaymentDocumentsOverview {
                 if (
                     subscription.staff ||
                     subscription.subscribed ||
-                    this.overview.documentList.length < 5
+                    this.overview.documentList.length < 4
                 ) {
                     this.overview.app.goTo(`/document/${id}/`)
                 } else {
                     const dialog = new Dialog({
-                        title: gettext('Subscription warning'),
+                        text: gettext('Subscription warning'),
                         body: `<p>${gettext('You have run out of free documents. Sign up for a subscription to create more documents.')}</p>`,
                         buttons: [
                             {
                                 title: gettext('Go to subscription page'),
                                 classes: 'fw-dark',
-                                click: dialog => {
+                                click: () => {
                                     dialog.close()
                                     this.overview.app.goTo(`/payment/`)
                                 }
