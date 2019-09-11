@@ -16,11 +16,11 @@ export class PaymentDocumentsOverview {
                     this.overview.app.goTo(`/document/${id}/`)
                 } else {
                     const dialog = new Dialog({
-                        text: gettext('Subscription warning'),
+                        title: gettext('Subscription warning'),
                         body: `<p>${gettext('You have run out of free documents. Sign up for a subscription to create more documents.')}</p>`,
                         buttons: [
                             {
-                                title: gettext('Go to subscription page'),
+                                text: gettext('Go to subscription page'),
                                 classes: 'fw-dark',
                                 click: () => {
                                     dialog.close()
