@@ -1,6 +1,7 @@
 import {postJson} from "../common"
 
 import {PaymentPage} from "./page"
+import {PricingPage} from "./pricing"
 
 export class PaymentApp {
     constructor(app) {
@@ -8,13 +9,19 @@ export class PaymentApp {
     }
 
     init() {
-        this.app.routes['payment'] = () => new PaymentPage(this.app.config)
+        this.app.routes['payment'] = {
+          requireLogin: true,
+          open: () => new PaymentPage(this.app.config)
+        }
+        this.app.routes['pricing'] = {
+          open: () => new PricingPage(this.app.config)
+        }
         this.app.getSubscription = () => {
             if (this.app.subscription) {
                 return Promise.resolve(this.app.subscription)
             }
             return postJson(
-                '/payment/get_stripe_details/'
+                '/api/payment/get_stripe_details/'
             ).then(({json}) => {
                 this.app.subscription = {
                     staff: json['staff'],

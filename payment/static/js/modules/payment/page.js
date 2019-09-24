@@ -28,7 +28,7 @@ export class PaymentPage {
         document.body = document.createElement('body')
         document.body.innerHTML = baseBodyTemplate({
             contents: advertisementTemplate(this.subscription),
-            username: this.user.username,
+            user: this.user,
             staticUrl: this.staticUrl
         })
         setDocTitle(gettext('Plan overview'), this.app)
@@ -44,7 +44,7 @@ export class PaymentPage {
             if (this.subscription.subscribed) {
                 if (this.subscription.subscriptionEnd) {
                     post(
-                        '/payment/reactivate_subscription/'
+                        '/api/payment/reactivate_subscription/'
                     ).then(
                         () => {
                             delete this.app.subscription
@@ -53,7 +53,7 @@ export class PaymentPage {
                     )
                 } else {
                     post(
-                        '/payment/cancel_subscription/'
+                        '/api/payment/cancel_subscription/'
                     ).then(
                         () => {
                             delete this.app.subscription
