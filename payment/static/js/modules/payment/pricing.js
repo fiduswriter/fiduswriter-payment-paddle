@@ -1,4 +1,4 @@
-import {Dialog, ensureCSS, whenReady} from "../common"
+import {ensureCSS} from "../common"
 import {advertisementTemplate} from "./templates"
 
 import {PreloginPage} from "../prelogin"
