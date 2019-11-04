@@ -70,9 +70,7 @@ export class PaymentPage {
                 // conflict with the GDPR.
                 const stripeScript = document.createElement('script')
                 stripeScript.onload = () => {
-                    window.Stripe(this.subscription.publicKey, {
-                        betas: ['checkout_beta_4']
-                    }).redirectToCheckout({
+                    window.Stripe(this.subscription.publicKey).redirectToCheckout({
                         items: [{plan: this.subscription.monthlyPlanId, quantity: 1}],
                         successUrl: window.location.href,
                         cancelUrl: window.location.href,

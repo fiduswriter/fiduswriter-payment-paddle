@@ -32,7 +32,7 @@ export const advertisementTemplate = ({subscribed, subscriptionEnd, noUser = fal
         </div>
         <div class="price-box upgrade">
             <h3>${gettext('Premium')}</h3>
-            <h2>${gettext('7 €/month')}</h2>
+            <h2>${gettext('4 €/month')}</h2>
             <button ${ subscribed && !subscriptionEnd ? '' : 'id="subscription"'}>
             ${
                 noUser ?
