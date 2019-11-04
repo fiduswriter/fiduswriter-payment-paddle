@@ -10,7 +10,7 @@ from djstripe.models import Subscription, Customer
 from djstripe import webhooks
 
 
-@webhooks.handler("checkout_beta.session_succeeded")
+@webhooks.handler("checkout.session.completed")
 def session_succeeded(event):
     """Handle the session succeeded event to hook a newly created customer to
     a django user."""
