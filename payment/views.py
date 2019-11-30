@@ -1,11 +1,28 @@
+import datetime
+
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from djstripe.models import Customer
+
+from .models import Customer
+
+
+def get_paddle_info(request):
+    if not request.is_ajax() or request.method != 'POST':
+        return JsonResponse(
+            {},
+            status=403
+        )
+    response = {}
+    response['vendor_id'] = settings.PADDLE_VENDOR_ID
+    response['monthly_plan_id'] = settings.PADDLE_MONTHLY_PLAN_ID
+    response['six_months_plan_id'] = settings.PADDLE_SIX_MONTHS_PLAN_ID
+    response['annual_plan_id'] = settings.PADDLE_ANNUAL_PLAN_ID
+    return JsonResponse(response, status=200)
 
 
 @login_required
-def get_stripe_details(request):
+def get_subscription_details(request):
     if not request.is_ajax() or request.method != 'POST':
         return JsonResponse(
             {},
@@ -14,26 +31,27 @@ def get_stripe_details(request):
     response = {}
     response['staff'] = request.user.is_staff
     subscribed = False
-    customer = Customer.objects.filter(subscriber=request.user).first()
+    customer = Customer.objects.filter(user=request.user).first()
     if customer:
-        if customer.has_any_active_subscription():
-            if customer.subscription.cancel_at_period_end:
-                response['subscription_end'] = \
-                    customer.subscription.current_period_end.timestamp()
-            subscribed = True
+        if not customer.cancelation_date:
+            subscribed = customer.subscription_type
+        elif customer.cancelation_date < datetime.date.today():
+            response['subscription_end'] = customer.cancelation_date
+            subscribed = customer.subscription_type
         else:
-            # The customer's subscription has run out, so we just delete the
-            # customer. That way a new customer can be created for the user if
-            # needed.
             customer.delete()
     response['subscribed'] = subscribed
-    if settings.STRIPE_LIVE_MODE:
-        response['public_key'] = settings.STRIPE_LIVE_PUBLIC_KEY
-        response['monthly_plan_id'] = settings.STRIPE_LIVE_MONTHLY_PLAN_ID
-    else:
-        response['public_key'] = settings.STRIPE_TEST_PUBLIC_KEY
-        response['monthly_plan_id'] = settings.STRIPE_TEST_MONTHLY_PLAN_ID
     return JsonResponse(response, status=200)
+
+
+def webhook(request):
+    status = 200
+    if not request.is_ajax() or request.method != 'POST':
+        status = 403
+        return JsonResponse(
+            {},
+            status=status
+        )
 
 
 @login_required

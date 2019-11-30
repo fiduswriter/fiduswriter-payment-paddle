@@ -11,7 +11,7 @@ export class PaymentDocumentsOverview {
                 if (
                     subscription.staff ||
                     subscription.subscribed ||
-                    this.overview.documentList.length < 4
+                    this.overview.documentList.length < 2
                 ) {
                     this.overview.app.goTo(`/document/${id}/`)
                 } else {
