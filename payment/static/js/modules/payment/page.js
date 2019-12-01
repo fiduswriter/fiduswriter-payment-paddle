@@ -49,18 +49,8 @@ export class PaymentPage {
     }
 
     handleClick(duration) {
-        if (this.app.subscription.subscribed) {
-            if (this.app.subscription.subscriptionEnd) {
-                post(
-                    '/api/payment/reactivate_subscription/'
-                ).then(
-                    () => {
-                        delete this.app.subscription
-                        this.init()
-                    }
-                )
-            } else {
-
+        if (this.app.subscription.subscribed &! this.app.subscription.subscriptionEnd) {
+            if (this.app.subscription.subscribed === duration) {
                 const dialog = new Dialog({
                     id: 'figure-dialog',
                     title: gettext("Modify subscription"),
@@ -87,8 +77,37 @@ export class PaymentPage {
                         }
                     ]
                 })
-                
+
                 dialog.open()
+            } else {
+                const dialog = new Dialog({
+                    id: 'figure-dialog',
+                    title: gettext("Switch subscription"),
+                    body: gettext('Do you really want to switch your subscription type?'),
+                    buttons: [
+                        {
+                            text: gettext('Yes'),
+                            classes: 'fw-dark',
+                            click: () => post(
+                                '/proxy/payment/update_subscription',
+                                {
+                                    plan_id: this.app.paddleInfo[duration].id,
+                                }
+                            ).then(
+                                () => () => {
+                                    delete this.app.subscription
+                                    this.init()
+                                }
+                            )
+                        },
+                        {
+                            type: 'cancel'
+                        }
+                    ]
+                })
+
+                dialog.open()
+
             }
 
         } else {

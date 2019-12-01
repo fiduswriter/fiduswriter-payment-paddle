@@ -20,7 +20,6 @@ def validate_webhook_request(query_dict):
     # input_data represents all of the POST fields sent with the request
     # Get the p_signature parameter & base64 decode it.
     signature = input_data['p_signature'][0]
-    print(signature)
 
     # Remove the p_signature parameter
     del input_data['p_signature']

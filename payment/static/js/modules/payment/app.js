@@ -66,11 +66,11 @@ export class PaymentApp {
                         })
                     ))
                 ]).then(
-                    ([monthly, sixMonths, annual]) => {
+                    ([monthly, sixmonths, annual]) => {
                         this.app.paddleInfo = {
                             vendorId,
                             monthly,
-                            sixMonths,
+                            sixmonths,
                             annual
                         }
                         return Promise.resolve()

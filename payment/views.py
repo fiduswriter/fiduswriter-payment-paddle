@@ -36,13 +36,13 @@ def get_subscription_details(request):
     customer = Customer.objects.filter(user=request.user).first()
     if customer:
         if (
-            not customer.cancelation_date or
+            customer.cancelation_date is None or
             customer.cancelation_date < datetime.date.today()
         ):
             response['subscribed'] = customer.subscription_type
             response['cancel_url'] = customer.cancel_url
             response['update_url'] = customer.update_url
-            if customer.cancelation_date < datetime.date.today():
+            if customer.cancelation_date:
                 response['subscription_end'] = customer.cancelation_date
         else:
             response['subscribed'] = False
@@ -82,6 +82,9 @@ def webhook(request):
             status=status
         )
     if alert_name == 'subscription_created':
+        # Delete old customers, if any
+        Customer.objects.filter(user=user).delete()
+        # Then create a new customer
         customer = Customer(
             user=user,
             subscription_id=request.POST['subscription_id']
@@ -106,10 +109,10 @@ def webhook(request):
     else:
         customer.cancel_url = request.POST['cancel_url']
         customer.update_url = request.POST['update_url']
-    if customer.subscription_plan_id == settings.PADDLE_ANNUAL_PLAN_ID:
+    if int(customer.subscription_plan_id) == settings.PADDLE_ANNUAL_PLAN_ID:
         customer.subscription_type = 'annual'
     elif (
-        customer.subscription_plan_id ==
+        int(customer.subscription_plan_id) ==
         settings.PADDLE_SIX_MONTHS_PLAN_ID
     ):
         customer.subscription_type = 'sixmonths'
@@ -121,35 +124,3 @@ def webhook(request):
         {},
         status=status
     )
-
-
-
-# @login_required
-# def cancel_subscription(request):
-#     status = 200
-#     if not request.is_ajax() or request.method != 'POST':
-#         status = 403
-#         return JsonResponse(
-#             {},
-#             status=status
-#         )
-#     customer = Customer.objects.filter(subscriber=request.user).first()
-#     if customer and customer.subscription:
-#         customer.subscription.cancel()
-#         status = 204
-#     return JsonResponse({}, status=status)
-
-
-@login_required
-def reactivate_subscription(request):
-    status = 200
-    if not request.is_ajax() or request.method != 'POST':
-        status = 403
-        return JsonResponse(
-            {},
-            status=status
-        )
-    customer = Customer.objects.filter(subscriber=request.user).first()
-    if customer and customer.subscription:
-        customer.subscription.reactivate()
-    return JsonResponse({}, status=status)

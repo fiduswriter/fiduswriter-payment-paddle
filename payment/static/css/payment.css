@@ -99,6 +99,11 @@
     border: 0;
 }
 
+.pricing-guide:not(.info-only) .price-box.upgrade button.current {
+    background-color: #d3421c;
+    border: 0;
+}
+
 .pricing-guide .price-box li {
     padding-left: 20px;
 }

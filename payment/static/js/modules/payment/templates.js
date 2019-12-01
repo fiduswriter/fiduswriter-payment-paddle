@@ -1,6 +1,6 @@
 import {localizeDate} from "../common"
 
-export const advertisementTemplate = ({subscribed, monthly, sixMonths, annual, subscriptionEnd, infoOnly = false}) => `
+export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, subscriptionEnd, infoOnly = false}) => `
 <div class="pricing-guide${ infoOnly ? ' info-only' : ''}">
     <h1>${gettext('Pricing Guide')}</h1>
     <p>
@@ -43,7 +43,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixMonths, annual, s
             </ul>
             <div class="price-offer">
                 <p><strong>${gettext('Monthly payments')}</strong></p>
-                <button class="subscription monthly">
+                <button class="subscription monthly${subscribed==='monthly' ? ' current' : ''}">
                     ${
                         infoOnly ?
                             '' :
@@ -63,7 +63,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixMonths, annual, s
             </div>
             <div class="price-offer">
                 <p><strong>${gettext('Semiannual payments')}</strong></p>
-                <button class="subscription sixmonths">
+                <button class="subscription sixmonths${subscribed==='sixmonths' ? ' current' : ''}">
                     ${
                         infoOnly ?
                             '' :
@@ -77,13 +77,13 @@ export const advertisementTemplate = ({subscribed, monthly, sixMonths, annual, s
                                             gettext('Switch to')
                             } : `
                     }
-                    ${sixMonths.price}
+                    ${sixmonths.price}
                 </button>
-                ${sixMonths.trial ? `<div>${gettext('Trial')}: ${sixMonths.trial} ${gettext('days')}</div>` : ''}
+                ${sixmonths.trial ? `<div>${gettext('Trial')}: ${sixmonths.trial} ${gettext('days')}</div>` : ''}
             </div>
             <div class="price-offer">
                 <p><strong>${gettext('Annual payments')}</strong></p>
-                <button class="subscription annual">
+                <button class="subscription annual${subscribed==='annual' ? ' current' : ''}">
                     ${
                         infoOnly ?
                             '' :

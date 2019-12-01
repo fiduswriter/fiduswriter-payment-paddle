@@ -21,6 +21,8 @@ Installation
     > ...
     > -----END PUBLIC KEY-----'''
 
+    > PADDLE_API_KEY = '234234a4b...36'
+
 5. Install `pycryptodome` and `phpserialize`:
 
     > pip install pycryptodome phpserialize

@@ -13,16 +13,6 @@ urlpatterns = [
         views.get_subscription_details,
         name='get_subscription_details'
     ),
-    # url(
-    #     '^cancel_subscription/$',
-    #     views.cancel_subscription,
-    #     name='cancel_subscription'
-    # ),
-    url(
-        '^reactivate_subscription/$',
-        views.reactivate_subscription,
-        name='reactivate_subscription'
-    ),
     url(
         'webhook/$',
         views.webhook,

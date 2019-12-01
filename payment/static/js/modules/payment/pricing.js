@@ -16,7 +16,6 @@ export class PricingPage extends PreloginPage {
         return this.app.getPaddleInfo().then(
             () => {
                 this.contents = advertisementTemplate(Object.assign({infoOnly: true}, this.app.paddleInfo))
-                console.log(this.contents)
                 return super.init()
             }
         )
