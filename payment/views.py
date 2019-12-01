@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Customer
 from .validate import validate_webhook_request
@@ -51,10 +52,10 @@ def get_subscription_details(request):
     return JsonResponse(response, status=200)
 
 
+@csrf_exempt
 def webhook(request):
     status = 200
     if (
-        not request.is_ajax() or
         request.method != 'POST' or
         not validate_webhook_request(request.POST)
     ):

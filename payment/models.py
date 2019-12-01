@@ -47,4 +47,4 @@ class Customer(models.Model):
     update_url = models.CharField(
         max_length=256
     )
-    cancelation_date = models.DateField(blank=True)
+    cancelation_date = models.DateField(blank=True, null=True)
