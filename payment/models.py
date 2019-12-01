@@ -4,12 +4,13 @@ from django.contrib.auth.models import User
 STATUS_CHOICES = (
     ('active', 'Active'),
     ('trialing', 'Trialing'),
-    ('canceled', 'Canceled')
+    ('paste_due', 'Past due'),
+    ('deleted', 'Deleted')
 )
 
 SUBSCRIPTION_TYPE_CHOICES = (
-    ('monthly', 'monthly'),
-    ('sixmonths', 'Six Months'),
+    ('monthly', 'Monthly'),
+    ('sixmonths', 'Six months'),
     ('annual', 'Annual')
 )
 

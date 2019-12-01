@@ -1,5 +1,5 @@
 import {advertisementTemplate} from "./templates"
-import {whenReady, baseBodyTemplate, setDocTitle, ensureCSS, post} from "../common"
+import {whenReady, baseBodyTemplate, setDocTitle, ensureCSS, post, Dialog} from "../common"
 import {SiteMenu} from "../menu"
 import {FeedbackTab} from "../feedback"
 
@@ -60,19 +60,40 @@ export class PaymentPage {
                     }
                 )
             } else {
-                post(
-                    '/api/payment/cancel_subscription/'
-                ).then(
-                    () => {
-                        delete this.app.subscription
-                        this.init()
-                    }
-                )
+
+                const dialog = new Dialog({
+                    id: 'figure-dialog',
+                    title: gettext("Modify subscription"),
+                    body: gettext('Please choose whether to update payment details or to cancel your subscription.'),
+                    buttons: [
+                        {
+                            text: gettext('Update payment details'),
+                            classes: 'fw-dark',
+                            click: () => window.Paddle.Checkout.open({
+                                override: this.app.subscription.update_url,
+                                success: window.location.href
+                            })
+                        },
+                        {
+                            text: gettext('Cancel subscription'),
+                            classes: 'fw-dark',
+                            click: () => window.Paddle.Checkout.open({
+                                override: this.app.subscription.cancel_url,
+                                success: window.location.href
+                            })
+                        },
+                        {
+                            type: 'cancel'
+                        }
+                    ]
+                })
+                
+                dialog.open()
             }
 
         } else {
             window.Paddle.Checkout.open({
-                product: this.app.paddleInfo[duration],
+                product: this.app.paddleInfo[duration].id,
                 email: this.user.emails.find(email => email.primary).address,
                 allowQuantity: false,
                 passthrough: String(this.user.id),

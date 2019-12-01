@@ -33,43 +33,46 @@ export class PaymentApp {
                     '/api/payment/get_paddle_info/'
                 )
             ).then(({json}) => {
-                const paddleInfo = {
-                    monthlyPlanId: json['monthly_plan_id'],
-                    sixMonthsPlanId: json['six_months_plan_id'],
-                    annualPlanId: json['annual_plan_id'],
-                    vendorId: json['vendor_id']
-                }
+                const monthlyPlanId = json['monthly_plan_id'],
+                    sixMonthsPlanId = json['six_months_plan_id'],
+                    annualPlanId = json['annual_plan_id'],
+                    vendorId = json['vendor_id']
                 window.Paddle.Setup({
-                    vendor: paddleInfo.vendorId
+                    vendor: vendorId
                 })
                 return Promise.all([
                     new Promise(resolve => window.Paddle.Product.Prices(
-                        paddleInfo.monthlyPlanId,
+                        monthlyPlanId,
                         response => resolve({
+                            id: monthlyPlanId,
                             price: response.recurring.price.gross,
                             trial: response.recurring.subscription.trial_days
                         })
                     )),
                     new Promise(resolve => window.Paddle.Product.Prices(
-                        paddleInfo.sixMonthsPlanId,
+                        sixMonthsPlanId,
                         response => resolve({
+                            id: sixMonthsPlanId,
                             price: response.recurring.price.gross,
                             trial: response.recurring.subscription.trial_days
                         })
                     )),
                     new Promise(resolve => window.Paddle.Product.Prices(
-                        paddleInfo.annualPlanId,
+                        annualPlanId,
                         response => resolve({
+                            id: annualPlanId,
                             price: response.recurring.price.gross,
                             trial: response.recurring.subscription.trial_days
                         })
                     ))
                 ]).then(
                     ([monthly, sixMonths, annual]) => {
-                        paddleInfo.monthly = monthly
-                        paddleInfo.sixMonths = sixMonths
-                        paddleInfo.annual = annual
-                        this.app.paddleInfo = paddleInfo
+                        this.app.paddleInfo = {
+                            vendorId,
+                            monthly,
+                            sixMonths,
+                            annual
+                        }
                         return Promise.resolve()
                     }
                 )

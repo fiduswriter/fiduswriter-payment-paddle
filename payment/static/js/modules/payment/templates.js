@@ -51,7 +51,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixMonths, annual, s
                                 subscribed === 'monthly' ?
                                     subscriptionEnd ?
                                         gettext('Reactivate') :
-                                        gettext('Cancel') :
+                                        gettext('Modify') :
                                         !subscribed ?
                                             gettext('Sign up') :
                                             gettext('Switch to')
@@ -71,7 +71,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixMonths, annual, s
                                 subscribed === 'sixmonths' ?
                                     subscriptionEnd ?
                                         gettext('Reactivate') :
-                                        gettext('Cancel') :
+                                        gettext('Modify') :
                                         !subscribed ?
                                             gettext('Sign up') :
                                             gettext('Switch to')
@@ -91,7 +91,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixMonths, annual, s
                                 subscribed === 'annual' ?
                                     subscriptionEnd ?
                                         gettext('Reactivate') :
-                                        gettext('Cancel') :
+                                        gettext('Modify') :
                                         !subscribed ?
                                             gettext('Sign up') :
                                             gettext('Switch to')
