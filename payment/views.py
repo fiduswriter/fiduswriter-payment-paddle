@@ -37,7 +37,7 @@ def get_subscription_details(request):
     if customer:
         if (
             customer.cancelation_date is None or
-            customer.cancelation_date < datetime.date.today()
+            customer.cancelation_date > datetime.date.today()
         ):
             response['subscribed'] = customer.subscription_type
             response['status'] = customer.status

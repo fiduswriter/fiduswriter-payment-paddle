@@ -25,8 +25,8 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                         gettext('Default') :
                         subscribed ?
                             subscription_end ?
-                                gettext('Downgrade on ') + localizeDate(subscription_end*1000, 'sortable-date') :
-                                gettext('Downgrade') :
+                                gettext('Downgrade on ') + subscription_end :
+                                gettext('Default') :
                             gettext('Current')
                 }
                 </button>
@@ -50,7 +50,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                             `${
                                 subscribed === 'monthly' ?
                                     subscription_end ?
-                                        gettext('Reactivate') :
+                                        gettext('Resubscribe') :
                                         gettext('Modify') :
                                         !subscribed ?
                                             gettext('Sign up') :
@@ -70,7 +70,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                             `${
                                 subscribed === 'sixmonths' ?
                                     subscription_end ?
-                                        gettext('Reactivate') :
+                                        gettext('Resubscribe') :
                                         gettext('Modify') :
                                         !subscribed ?
                                             gettext('Sign up') :
@@ -90,7 +90,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                             `${
                                 subscribed === 'annual' ?
                                     subscription_end ?
-                                        gettext('Reactivate') :
+                                        gettext('Resubscribe') :
                                         gettext('Modify') :
                                         !subscribed ?
                                             gettext('Sign up') :
