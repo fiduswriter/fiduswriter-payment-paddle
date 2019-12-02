@@ -103,5 +103,5 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
             </div>
         </div>
     </div>
-    <div id="error-message"></div>
+    <p>${gettext('Subscriptions are sold by Paddle.com. Payments are accepted by credit card or Paypal. Subscriptions can be cancelled any time. However, no refunds will be made for the current billing period. If you cancel during the trial period, you will not be charged.')}</p>
 </div>`
