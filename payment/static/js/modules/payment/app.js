@@ -88,12 +88,7 @@ export class PaymentApp {
                     '/api/payment/get_subscription_details/'
                 )
             ).then(({json}) => {
-                this.app.subscription = {
-                    staff: json['staff'],
-                    status: json['status'] ? json['status'] : false,
-                    subscribed: json['subscribed'],
-                    subscriptionEnd: json['subscription_end'] ? json['subscription_end'] : false
-                }
+                this.app.subscription = json
                 return Promise.resolve()
             })
         }

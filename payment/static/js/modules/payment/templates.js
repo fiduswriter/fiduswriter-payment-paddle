@@ -1,6 +1,6 @@
 import {localizeDate} from "../common"
 
-export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, subscriptionEnd, infoOnly = false}) => `
+export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, subscription_end, infoOnly = false}) => `
 <div class="pricing-guide${ infoOnly ? ' info-only' : ''}">
     <h1>${gettext('Pricing Guide')}</h1>
     <p>
@@ -19,13 +19,13 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                 <li><i class="fa-li fa fa-check"></i>${gettext('Unlimited exports')}</li>
             </ul>
             <div class="price-offer">
-                <button${ subscribed && !subscriptionEnd ? ' class="subscription"' : ''}>
+                <button${ subscribed && !subscription_end ? ' class="subscription"' : ''}>
                 ${
                     infoOnly ?
                         gettext('Default') :
                         subscribed ?
-                            subscriptionEnd ?
-                                gettext('Downgrade on ') + localizeDate(subscriptionEnd*1000, 'sortable-date') :
+                            subscription_end ?
+                                gettext('Downgrade on ') + localizeDate(subscription_end*1000, 'sortable-date') :
                                 gettext('Downgrade') :
                             gettext('Current')
                 }
@@ -49,7 +49,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                             '' :
                             `${
                                 subscribed === 'monthly' ?
-                                    subscriptionEnd ?
+                                    subscription_end ?
                                         gettext('Reactivate') :
                                         gettext('Modify') :
                                         !subscribed ?
@@ -69,7 +69,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                             '' :
                             `${
                                 subscribed === 'sixmonths' ?
-                                    subscriptionEnd ?
+                                    subscription_end ?
                                         gettext('Reactivate') :
                                         gettext('Modify') :
                                         !subscribed ?
@@ -89,7 +89,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                             '' :
                             `${
                                 subscribed === 'annual' ?
-                                    subscriptionEnd ?
+                                    subscription_end ?
                                         gettext('Reactivate') :
                                         gettext('Modify') :
                                         !subscribed ?

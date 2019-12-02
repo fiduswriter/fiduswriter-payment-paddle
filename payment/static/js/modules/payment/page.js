@@ -49,7 +49,7 @@ export class PaymentPage {
     }
 
     handleClick(duration) {
-        if (this.app.subscription.subscribed && !this.app.subscription.subscriptionEnd) {
+        if (this.app.subscription.subscribed && !this.app.subscription.subscription_end) {
             if (this.app.subscription.subscribed === duration) {
                 const dialog = new Dialog({
                     id: 'figure-dialog',
