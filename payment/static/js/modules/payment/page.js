@@ -82,7 +82,7 @@ export class PaymentPage {
             } else if (this.app.subscription.status==='trialing') {
                 const dialog = new Dialog({
                     title: gettext('Plan change not possible'),
-                    body: gettext('Unfortunately it is not possible to switch plans during the trial period.')},
+                    body: gettext('Unfortunately it is not possible to switch plans during the trial period.'),
                     buttons: [{type: 'close'}]
                 })
                 dialog.open()

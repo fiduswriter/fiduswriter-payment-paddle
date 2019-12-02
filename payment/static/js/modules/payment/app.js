@@ -90,7 +90,7 @@ export class PaymentApp {
             ).then(({json}) => {
                 this.app.subscription = {
                     staff: json['staff'],
-                    publicKey: json['public_key'],
+                    status: json['status'] ? json['status'] : false,
                     subscribed: json['subscribed'],
                     subscriptionEnd: json['subscription_end'] ? json['subscription_end'] : false
                 }
