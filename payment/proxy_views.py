@@ -4,6 +4,9 @@ from urllib.parse import urlencode
 from base.django_handler_mixin import DjangoHandlerMixin
 from django.conf import settings
 
+from .models import Customer
+
+
 class Proxy(DjangoHandlerMixin, RequestHandler):
     async def post(self, relative_url):
         self.user = self.get_current_user()

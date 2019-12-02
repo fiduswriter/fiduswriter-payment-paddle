@@ -40,6 +40,7 @@ def get_subscription_details(request):
             customer.cancelation_date < datetime.date.today()
         ):
             response['subscribed'] = customer.subscription_type
+            response['status'] = customer.status
             response['cancel_url'] = customer.cancel_url
             response['update_url'] = customer.update_url
             if customer.cancelation_date:
@@ -101,7 +102,10 @@ def webhook(request):
                 status=status
             )
     customer.status = request.POST['status']
-    customer.unit_price = request.POST['unit_price']
+    if alert_name == 'subscription_updated':
+        customer.unit_price = request.POST['new_unit_price']
+    else:
+        customer.unit_price = request.POST['unit_price']
     customer.currency = request.POST['currency']
     customer.subscription_plan_id = request.POST['subscription_plan_id']
     if alert_name == 'subscription_cancelled':

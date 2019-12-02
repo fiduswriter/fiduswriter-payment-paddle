@@ -1,5 +1,5 @@
 import {advertisementTemplate} from "./templates"
-import {whenReady, baseBodyTemplate, setDocTitle, ensureCSS, post, Dialog} from "../common"
+import {whenReady, baseBodyTemplate, setDocTitle, ensureCSS, post, Dialog, activateWait, deactivateWait} from "../common"
 import {SiteMenu} from "../menu"
 import {FeedbackTab} from "../feedback"
 
@@ -49,7 +49,7 @@ export class PaymentPage {
     }
 
     handleClick(duration) {
-        if (this.app.subscription.subscribed &! this.app.subscription.subscriptionEnd) {
+        if (this.app.subscription.subscribed && !this.app.subscription.subscriptionEnd) {
             if (this.app.subscription.subscribed === duration) {
                 const dialog = new Dialog({
                     id: 'figure-dialog',
@@ -79,6 +79,13 @@ export class PaymentPage {
                 })
 
                 dialog.open()
+            } else if (this.app.subscription.status==='trialing') {
+                const dialog = new Dialog({
+                    title: gettext('Plan change not possible'),
+                    body: gettext('Unfortunately it is not possible to switch plans during the trial period.')},
+                    buttons: [{type: 'close'}]
+                })
+                dialog.open()
             } else {
                 const dialog = new Dialog({
                     id: 'figure-dialog',
@@ -89,16 +96,21 @@ export class PaymentPage {
                             text: gettext('Yes'),
                             classes: 'fw-dark',
                             click: () => post(
-                                '/proxy/payment/update_subscription',
-                                {
-                                    plan_id: this.app.paddleInfo[duration].id,
-                                }
-                            ).then(
-                                () => () => {
-                                    delete this.app.subscription
-                                    this.init()
-                                }
-                            )
+                                    '/proxy/payment/update_subscription',
+                                    {
+                                        plan_id: this.app.paddleInfo[duration].id,
+                                    }
+                                ).then(
+                                    () => {
+                                        delete this.app.subscription
+                                        activateWait()
+                                        // Wait five seconds, then reload subscription status
+                                        setTimeout(() => {
+                                            deactivateWait()
+                                            this.init()
+                                        }, 5000)
+                                    }
+                                )
                         },
                         {
                             type: 'cancel'
