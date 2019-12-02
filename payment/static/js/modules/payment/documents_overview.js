@@ -7,10 +7,10 @@ export class PaymentDocumentsOverview {
 
     init() {
         this.overview.goToNewDocument = id => {
-            this.overview.app.getSubscription().then(subscription => {
+            this.overview.app.getSubscription().then(() => {
                 if (
-                    subscription.staff ||
-                    subscription.subscribed ||
+                    this.overview.app.subscription.staff ||
+                    this.overview.app.subscription.subscribed ||
                     this.overview.documentList.length < 2
                 ) {
                     this.overview.app.goTo(`/document/${id}/`)

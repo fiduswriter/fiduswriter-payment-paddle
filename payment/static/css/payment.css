@@ -90,12 +90,13 @@
     font-size: 13px;
     border: solid 0.5px #1d1d1d;
     background-color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+    margin: 3px;
 }
 
 
 .pricing-guide:not(.info-only) .price-box.upgrade button {
     background-color: #83b3a7;
+    cursor: pointer;
     border: 0;
 }
 
