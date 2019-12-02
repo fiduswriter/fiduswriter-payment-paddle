@@ -1,1 +1,2 @@
-dj-stripe==2.0.0
+pycryptodome==3.9.4
+phpserialize==1.3

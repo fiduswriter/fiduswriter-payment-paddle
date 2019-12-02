@@ -37,6 +37,7 @@
     background-color: #fff;
     margin: 25px;
     padding: 27px;
+    vertical-align: top;
 }
 
 .pricing-guide .price-box h2 {
@@ -75,6 +76,10 @@
     color: #2c2723;
 }
 
+.pricing-guide .price-offer {
+    margin: 20px;
+}
+
 .pricing-guide .price-box button {
     color: #fff;
     height: 44px;
@@ -83,15 +88,19 @@
     outline: none;
     text-transform: uppercase;
     font-size: 13px;
-    margin: 32px;
     border: solid 0.5px #1d1d1d;
     background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 
 
-.pricing-guide .price-box.upgrade button {
+.pricing-guide:not(.info-only) .price-box.upgrade button {
     background-color: #83b3a7;
+    border: 0;
+}
+
+.pricing-guide:not(.info-only) .price-box.upgrade button.current {
+    background-color: #d3421c;
     border: 0;
 }
 
@@ -109,4 +118,8 @@
 
 div.star {
   display: none;
+}
+
+.pricing-guide.info-only button {
+    cursor: default;
 }

@@ -7,13 +7,17 @@ export class PricingPage extends PreloginPage {
     constructor(config) {
         super(config)
         this.title = gettext('Pricing')
-        this.contents = advertisementTemplate({noUser: true})
     }
 
-    bind() {
-        super.bind()
+    init() {
         ensureCSS([
             'payment.css'
         ], this.staticUrl)
+        return this.app.getPaddleInfo().then(
+            () => {
+                this.contents = advertisementTemplate(Object.assign({infoOnly: true}, this.app.paddleInfo))
+                return super.init()
+            }
+        )
     }
 }

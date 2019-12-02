@@ -1,11 +1,31 @@
+import datetime
+
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from djstripe.models import Customer
+from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
+
+from .models import Customer
+from .validate import validate_webhook_request
+
+
+def get_paddle_info(request):
+    if not request.is_ajax() or request.method != 'POST':
+        return JsonResponse(
+            {},
+            status=403
+        )
+    response = {}
+    response['vendor_id'] = settings.PADDLE_VENDOR_ID
+    response['monthly_plan_id'] = settings.PADDLE_MONTHLY_PLAN_ID
+    response['six_months_plan_id'] = settings.PADDLE_SIX_MONTHS_PLAN_ID
+    response['annual_plan_id'] = settings.PADDLE_ANNUAL_PLAN_ID
+    return JsonResponse(response, status=200)
 
 
 @login_required
-def get_stripe_details(request):
+def get_subscription_details(request):
     if not request.is_ajax() or request.method != 'POST':
         return JsonResponse(
             {},
@@ -13,55 +33,98 @@ def get_stripe_details(request):
         )
     response = {}
     response['staff'] = request.user.is_staff
-    subscribed = False
-    customer = Customer.objects.filter(subscriber=request.user).first()
+    customer = Customer.objects.filter(user=request.user).first()
     if customer:
-        if customer.has_any_active_subscription():
-            if customer.subscription.cancel_at_period_end:
-                response['subscription_end'] = \
-                    customer.subscription.current_period_end.timestamp()
-            subscribed = True
+        if (
+            customer.cancelation_date is None or
+            customer.cancelation_date > datetime.date.today()
+        ):
+            response['subscribed'] = customer.subscription_type
+            response['status'] = customer.status
+            response['cancel_url'] = customer.cancel_url
+            response['update_url'] = customer.update_url
+            if customer.cancelation_date:
+                response['subscription_end'] = customer.cancelation_date
         else:
-            # The customer's subscription has run out, so we just delete the
-            # customer. That way a new customer can be created for the user if
-            # needed.
+            response['subscribed'] = False
             customer.delete()
-    response['subscribed'] = subscribed
-    if settings.STRIPE_LIVE_MODE:
-        response['public_key'] = settings.STRIPE_LIVE_PUBLIC_KEY
-        response['monthly_plan_id'] = settings.STRIPE_LIVE_MONTHLY_PLAN_ID
     else:
-        response['public_key'] = settings.STRIPE_TEST_PUBLIC_KEY
-        response['monthly_plan_id'] = settings.STRIPE_TEST_MONTHLY_PLAN_ID
+        response['subscribed'] = False
     return JsonResponse(response, status=200)
 
 
-@login_required
-def cancel_subscription(request):
+@csrf_exempt
+def webhook(request):
     status = 200
-    if not request.is_ajax() or request.method != 'POST':
+    if (
+        request.method != 'POST' or
+        not validate_webhook_request(request.POST)
+    ):
         status = 403
         return JsonResponse(
             {},
             status=status
         )
-    customer = Customer.objects.filter(subscriber=request.user).first()
-    if customer and customer.subscription:
-        customer.subscription.cancel()
-        status = 204
-    return JsonResponse({}, status=status)
-
-
-@login_required
-def reactivate_subscription(request):
-    status = 200
-    if not request.is_ajax() or request.method != 'POST':
-        status = 403
+    alert_name = request.POST['alert_name']
+    if not alert_name in [
+        'subscription_created',
+        'subscription_updated',
+        'subscription_cancelled'
+    ]:
         return JsonResponse(
             {},
             status=status
         )
-    customer = Customer.objects.filter(subscriber=request.user).first()
-    if customer and customer.subscription:
-        customer.subscription.reactivate()
-    return JsonResponse({}, status=status)
+    user_id = int(request.POST['passthrough'])
+    user = User.objects.filter(id=user_id).first()
+    if not user:
+        return JsonResponse(
+            {},
+            status=status
+        )
+    if alert_name == 'subscription_created':
+        # Delete old customers, if any
+        Customer.objects.filter(user=user).delete()
+        # Then create a new customer
+        customer = Customer(
+            user=user,
+            subscription_id=request.POST['subscription_id']
+        )
+    else:
+        customer = Customer.objects.filter(
+            user=user,
+            subscription_id=request.POST['subscription_id']
+        ).first()
+        if not customer:
+            status = 403
+            return JsonResponse(
+                {},
+                status=status
+            )
+    customer.status = request.POST['status']
+    if alert_name == 'subscription_updated':
+        customer.unit_price = request.POST['new_unit_price']
+    else:
+        customer.unit_price = request.POST['unit_price']
+    customer.currency = request.POST['currency']
+    customer.subscription_plan_id = request.POST['subscription_plan_id']
+    if alert_name == 'subscription_cancelled':
+        customer.cancelation_date = request.POST['cancellation_effective_date']
+    else:
+        customer.cancel_url = request.POST['cancel_url']
+        customer.update_url = request.POST['update_url']
+    if int(customer.subscription_plan_id) == settings.PADDLE_ANNUAL_PLAN_ID:
+        customer.subscription_type = 'annual'
+    elif (
+        int(customer.subscription_plan_id) ==
+        settings.PADDLE_SIX_MONTHS_PLAN_ID
+    ):
+        customer.subscription_type = 'sixmonths'
+    else:
+        customer.subscription_type = 'monthly'
+    customer.save()
+
+    return JsonResponse(
+        {},
+        status=status
+    )
