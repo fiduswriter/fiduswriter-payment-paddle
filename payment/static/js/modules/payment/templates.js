@@ -6,7 +6,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
     <p>
         ${gettext('You can write 2 documents on the Free Plan without any trial period.')}
         <br>
-        ${gettext('If you want to write more documents, you can upgrade your plan here:')}
+        ${gettext('If you want to write more documents, you can upgrade your plan below.')}
     </p>
     <div class="price-boxes">
         <div class="price-box">
@@ -103,5 +103,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
             </div>
         </div>
     </div>
-    <p>${gettext('Subscriptions are sold by Paddle.com. Payments are accepted by credit card or Paypal. Subscriptions can be cancelled any time. However, no refunds will be made for the current billing period. If you cancel during the trial period, you will not be charged.')}</p>
+    <p><strong>${gettext('Refunds and cancellation')}</strong>: ${gettext('Subscriptions can be cancelled at any time. If a cancellation took place during the trial period, no charge will be made. Thereafter, subscriptions are charged in advance and no refunds will be made.')}
+    ${gettext('See')} <a href="/pages/terms/">${gettext('Terms and Conditions')}</a>.</p>
+    <p>${gettext('Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.')}</p>
 </div>`
