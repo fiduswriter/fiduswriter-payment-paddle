@@ -82,6 +82,16 @@ def webhook(request):
             {},
             status=status
         )
+    subscription_plan_id = int(request.POST['subscription_plan_id'])
+    if int(subscription_plan_id) not in [
+        settings.PADDLE_MONTHLY_PLAN_ID,
+        settings.PADDLE_SIX_MONTHS_PLAN_ID,
+        settings.PADDLE_ANNUAL_PLAN_ID
+    ]:
+        return JsonResponse(
+            {},
+            status=status
+        )
     if alert_name == 'subscription_created':
         # Delete old customers, if any
         Customer.objects.filter(user=user).delete()
@@ -96,7 +106,6 @@ def webhook(request):
             subscription_id=request.POST['subscription_id']
         ).first()
         if not customer:
-            status = 403
             return JsonResponse(
                 {},
                 status=status
