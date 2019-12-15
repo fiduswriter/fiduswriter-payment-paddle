@@ -24,7 +24,7 @@ def handler_save_document(sender, instance, created, **kwargs):
             if not customer:
                 pass
             elif customer.cancelation_date:
-                if customer.cancelation_date < datetime.date.today():
+                if customer.cancelation_date > datetime.date.today():
                     forbidden = False
                 else:
                     customer.delete()
