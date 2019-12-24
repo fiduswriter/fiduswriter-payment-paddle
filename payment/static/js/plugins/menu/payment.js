@@ -1,1 +1,1 @@
-export {PaymentLink} from "../../modules/payment"
+export {PaymentMenuItem} from "../../modules/payment"

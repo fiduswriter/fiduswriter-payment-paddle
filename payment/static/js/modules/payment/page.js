@@ -18,7 +18,7 @@ export class PaymentPage {
             return whenReady()
         }).then(() => {
             this.render()
-            const smenu = new SiteMenu("") // Nothing highlighted
+            const smenu = new SiteMenu("payment")
             smenu.init()
         })
     }
