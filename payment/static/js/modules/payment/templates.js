@@ -36,7 +36,7 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
             <h3>${gettext('Premium')}</h3>
             <h2>${gettext('Paid Plan')}</h2>
             <ul class="fa-ul">
-                <li><i class="fa-li fa fa-check"></i><strong>${gettext('Unlimited')}</strong> ${gettext('documents')}</li>
+                <li><i class="fa-li fa fa-check"></i><strong>${gettext('Unlimited documents')}</strong></li>
                 <li><i class="fa-li fa fa-check"></i>${gettext('Unlimited collaborators')}</li>
                 <li><i class="fa-li fa fa-check"></i>${gettext('Unlimited bibliography items')}</li>
                 <li><i class="fa-li fa fa-check"></i>${gettext('Unlimited exports')}</li>
@@ -54,8 +54,8 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                                         gettext('Modify') :
                                         !subscribed ?
                                             gettext('Sign up') :
-                                            gettext('Switch to')
-                            } : `
+                                            gettext('Switch')
+                            }: `
                     }
                     ${monthly.price}
                 </button>
@@ -74,8 +74,8 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                                         gettext('Modify') :
                                         !subscribed ?
                                             gettext('Sign up') :
-                                            gettext('Switch to')
-                            } : `
+                                            gettext('Switch')
+                            }: `
                     }
                     ${sixmonths.price}
                 </button>
@@ -94,8 +94,8 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                                         gettext('Modify') :
                                         !subscribed ?
                                             gettext('Sign up') :
-                                            gettext('Switch to')
-                            } : `
+                                            gettext('Switch')
+                            }: `
                     }
                     ${annual.price}
                 </button>
