@@ -50,7 +50,7 @@ msgstr "No es posible realizar el cambio de plan"
 
 #: payment/static/js/modules/payment/page.js:80
 msgid "Unfortunately it is not possible to switch plans during the trial period."
-msgstr "Lamentablemente, no es posible cambiar de plan durante el período de prueba."
+msgstr "Lamentablemente, no es posible cambiar de plan durante el periodo de prueba."
 
 #: payment/static/js/modules/payment/page.js:89
 msgid "Switch subscription"
@@ -75,11 +75,11 @@ msgstr "Guía de precios"
 
 #: payment/static/js/modules/payment/templates.js:9
 msgid "You can write 2 documents on the Free Plan without any trial period."
-msgstr "Puede escribir 2 documentos en el Plan gratuito sin ningún período de prueba."
+msgstr "Puede escribir 2 documentos en el Plan gratuito sin ningún periodo de prueba."
 
 #: payment/static/js/modules/payment/templates.js:9
 msgid "If you want to write more documents, you can upgrade your plan below."
-msgstr "Si desea escribir más documentos, puede actualizar su plan a continuación."
+msgstr "Si desea escribir más documentos, puede elegir un plan a continuación."
 
 #: payment/static/js/modules/payment/templates.js:9
 msgid "Basic"
@@ -107,7 +107,7 @@ msgstr "Exportaciones ilimitadas"
 
 #: payment/static/js/modules/payment/templates.js:9
 msgid "Default"
-msgstr "Predeterminado"
+msgstr "Gratuito"
 
 #: payment/static/js/modules/payment/templates.js:9
 msgid "Downgrade on "
