@@ -24,12 +24,14 @@ export class PaymentPage {
     }
 
     render() {
-        document.body = document.createElement('body')
-        document.body.innerHTML = baseBodyTemplate({
+        const dom = document.createElement('body')
+        dom.classList.add('payment')
+        dom.innerHTML = baseBodyTemplate({
             contents: advertisementTemplate(Object.assign({}, this.app.paddleInfo, this.app.subscription)),
             user: this.user,
             staticUrl: this.staticUrl
         })
+        document.body = dom
         setDocTitle(gettext('Plan overview'), this.app)
         const feedbackTab = new FeedbackTab({staticUrl: this.staticUrl})
         feedbackTab.init()

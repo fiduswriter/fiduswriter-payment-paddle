@@ -1,3 +1,7 @@
+body.payment {
+    overflow-y: auto;
+}
+
 .pricing-guide strong {
     font-weight: 900;
 }
