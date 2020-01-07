@@ -39,7 +39,7 @@ body.payment {
     width: 287px;
     display: inline-block;
     background-color: #fff;
-    margin: 25px;
+    margin: 25px auto 25px auto;
     padding: 27px;
     vertical-align: top;
 }
