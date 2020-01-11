@@ -1,5 +1,3 @@
-import {localizeDate} from "../common"
-
 export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, subscription_end, infoOnly = false}) => `
 <div class="pricing-guide${ infoOnly ? ' info-only' : ''}">
     <h1>${gettext('Pricing Guide')}</h1>
