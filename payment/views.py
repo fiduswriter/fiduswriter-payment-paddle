@@ -5,17 +5,16 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 
+from base.decorators import ajax_required
 from .models import Customer
 from .validate import validate_webhook_request
 
 
+@require_POST
+@ajax_required
 def get_paddle_info(request):
-    if not request.is_ajax() or request.method != 'POST':
-        return JsonResponse(
-            {},
-            status=403
-        )
     response = {}
     response['vendor_id'] = settings.PADDLE_VENDOR_ID
     response['monthly_plan_id'] = settings.PADDLE_MONTHLY_PLAN_ID
@@ -25,12 +24,9 @@ def get_paddle_info(request):
 
 
 @login_required
+@require_POST
+@ajax_required
 def get_subscription_details(request):
-    if not request.is_ajax() or request.method != 'POST':
-        return JsonResponse(
-            {},
-            status=403
-        )
     response = {}
     response['staff'] = request.user.is_staff
     customer = Customer.objects.filter(user=request.user).first()
@@ -54,12 +50,10 @@ def get_subscription_details(request):
 
 
 @csrf_exempt
+@require_POST
 def webhook(request):
     status = 200
-    if (
-        request.method != 'POST' or
-        not validate_webhook_request(request.POST)
-    ):
+    if not validate_webhook_request(request.POST):
         status = 403
         return JsonResponse(
             {},

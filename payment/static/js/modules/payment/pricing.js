@@ -12,7 +12,7 @@ export class PricingPage extends PreloginPage {
     init() {
         ensureCSS([
             'payment.css'
-        ], this.staticUrl)
+        ])
         return this.app.getPaddleInfo().then(
             () => {
                 this.contents = advertisementTemplate(Object.assign({infoOnly: true}, this.app.paddleInfo))

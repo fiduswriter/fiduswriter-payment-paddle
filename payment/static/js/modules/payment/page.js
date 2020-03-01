@@ -4,17 +4,16 @@ import {SiteMenu} from "../menu"
 import {FeedbackTab} from "../feedback"
 
 export class PaymentPage {
-    constructor({app, user, staticUrl}) {
+    constructor({app, user}) {
         this.app = app
         this.user = user
-        this.staticUrl = staticUrl
     }
 
     init() {
         this.app.getSubscription().then(() => {
             ensureCSS([
                 'payment.css'
-            ], this.staticUrl)
+            ])
             return whenReady()
         }).then(() => {
             this.render()
@@ -24,14 +23,15 @@ export class PaymentPage {
     }
 
     render() {
-        document.body = document.createElement('body')
-        document.body.innerHTML = baseBodyTemplate({
+        const dom = document.createElement('body')
+        dom.classList.add('payment')
+        dom.innerHTML = baseBodyTemplate({
             contents: advertisementTemplate(Object.assign({}, this.app.paddleInfo, this.app.subscription)),
-            user: this.user,
-            staticUrl: this.staticUrl
+            user: this.user
         })
+        document.body = dom
         setDocTitle(gettext('Plan overview'), this.app)
-        const feedbackTab = new FeedbackTab({staticUrl: this.staticUrl})
+        const feedbackTab = new FeedbackTab()
         feedbackTab.init()
         this.bind()
     }
