@@ -17,7 +17,7 @@ export class PaymentPage {
             return whenReady()
         }).then(() => {
             this.render()
-            const smenu = new SiteMenu("payment")
+            const smenu = new SiteMenu(this.app, "payment")
             smenu.init()
         })
     }
