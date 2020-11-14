@@ -10,7 +10,7 @@ export class PaymentPage {
     }
 
     init() {
-        this.app.getSubscription().then(() => {
+        return this.app.getSubscription().then(() => {
             ensureCSS([
                 'payment.css'
             ])

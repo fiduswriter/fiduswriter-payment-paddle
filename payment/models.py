@@ -21,7 +21,7 @@ class Customer(models.Model):
         on_delete=models.deletion.CASCADE
     )
     status = models.CharField(
-        max_length=8,
+        max_length=9,
         choices=STATUS_CHOICES,
         blank=False
     )
