@@ -1,4 +1,4 @@
-from tornado.web import RequestHandler, HTTPError
+from tornado.web import RequestHandler
 from tornado.httpclient import AsyncHTTPClient, HTTPRequest
 from urllib.parse import urlencode
 from base.django_handler_mixin import DjangoHandlerMixin

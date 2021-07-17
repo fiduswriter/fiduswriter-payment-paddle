@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 
 STATUS_CHOICES = (
     ('active', 'Active'),
@@ -17,7 +17,7 @@ SUBSCRIPTION_TYPE_CHOICES = (
 
 class Customer(models.Model):
     user = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.deletion.CASCADE
     )
     status = models.CharField(

@@ -60,7 +60,7 @@ def webhook(request):
             status=status
         )
     alert_name = request.POST['alert_name']
-    if not alert_name in [
+    if alert_name not in [
         'subscription_created',
         'subscription_updated',
         'subscription_cancelled'

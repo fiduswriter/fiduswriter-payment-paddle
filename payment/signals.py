@@ -1,12 +1,11 @@
 import datetime
 
-from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 
 from document.models import Document
 
-from .models import  Customer
+from .models import Customer
 
 
 @receiver(post_save, sender=Document)

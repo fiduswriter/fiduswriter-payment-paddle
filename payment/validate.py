@@ -1,4 +1,5 @@
-# Adapted from https://developer.paddle.com/webhook-reference/verifying-webhooks
+# Adapted from
+# https://developer.paddle.com/webhook-reference/verifying-webhooks
 
 from django.conf import settings
 
@@ -7,8 +8,8 @@ import base64
 from Crypto.PublicKey import RSA
 from Crypto.Hash import SHA1
 from Crypto.Signature import PKCS1_v1_5
-import hashlib
 import phpserialize
+
 
 def validate_webhook_request(query_dict):
     input_data = dict(query_dict)
@@ -26,7 +27,7 @@ def validate_webhook_request(query_dict):
 
     # Ensure all the data fields are strings
     for field in input_data:
-    	input_data[field] = str(input_data[field][0])
+        input_data[field] = str(input_data[field][0])
 
     # Sort the data
     sorted_data = collections.OrderedDict(sorted(input_data.items()))
@@ -41,6 +42,6 @@ def validate_webhook_request(query_dict):
     verifier = PKCS1_v1_5.new(key)
     signature = base64.b64decode(signature)
     if verifier.verify(digest, signature):
-    	return True
+        return True
     else:
-    	return False
+        return False
