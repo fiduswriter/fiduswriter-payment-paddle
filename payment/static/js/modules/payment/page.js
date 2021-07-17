@@ -79,7 +79,7 @@ export class PaymentPage {
                 })
 
                 dialog.open()
-            } else if (this.app.subscription.status==='trialing') {
+            } else if (this.app.subscription.status === 'trialing') {
                 const dialog = new Dialog({
                     title: gettext('Plan change not possible'),
                     body: gettext('Unfortunately it is not possible to switch plans during the trial period.'),
@@ -96,21 +96,21 @@ export class PaymentPage {
                             text: gettext('Yes'),
                             classes: 'fw-dark',
                             click: () => post(
-                                    '/proxy/payment/update_subscription',
-                                    {
-                                        plan_id: this.app.paddleInfo[duration].id,
-                                    }
-                                ).then(
-                                    () => {
-                                        delete this.app.subscription
-                                        activateWait()
-                                        // Wait five seconds, then reload subscription status
-                                        setTimeout(() => {
-                                            deactivateWait()
-                                            this.init()
-                                        }, 5000)
-                                    }
-                                )
+                                '/proxy/payment/update_subscription',
+                                {
+                                    plan_id: this.app.paddleInfo[duration].id,
+                                }
+                            ).then(
+                                () => {
+                                    delete this.app.subscription
+                                    activateWait()
+                                    // Wait five seconds, then reload subscription status
+                                    setTimeout(() => {
+                                        deactivateWait()
+                                        this.init()
+                                    }, 5000)
+                                }
+                            )
                         },
                         {
                             type: 'cancel'
