@@ -15,15 +15,15 @@ def validate_webhook_request(query_dict):
     input_data = dict(query_dict)
     # Convert key from PEM to DER - Strip the first and last lines and
     # newlines, and decode
-    public_key_encoded = settings.PADDLE_PUBLIC_KEY[26:-25].replace('\n', '')
+    public_key_encoded = settings.PADDLE_PUBLIC_KEY[26:-25].replace("\n", "")
     public_key_der = base64.b64decode(public_key_encoded)
 
     # input_data represents all of the POST fields sent with the request
     # Get the p_signature parameter & base64 decode it.
-    signature = input_data['p_signature'][0]
+    signature = input_data["p_signature"][0]
 
     # Remove the p_signature parameter
-    del input_data['p_signature']
+    del input_data["p_signature"]
 
     # Ensure all the data fields are strings
     for field in input_data:

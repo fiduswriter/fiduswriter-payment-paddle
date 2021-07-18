@@ -17,9 +17,7 @@ def handler_save_document(sender, instance, created, **kwargs):
         elif instance.owner.owner.count() < 3:
             forbidden = False
         else:
-            customer = Customer.objects.filter(
-                user=instance.owner
-            ).first()
+            customer = Customer.objects.filter(user=instance.owner).first()
             if not customer:
                 pass
             elif customer.cancelation_date:

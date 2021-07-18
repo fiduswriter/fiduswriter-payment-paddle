@@ -6,18 +6,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('payment', '0001_initial'),
+        ("payment", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='customer',
-            name='status',
-            field=models.CharField(choices=[('active', 'Active'), ('trialing', 'Trialing'), ('paste_due', 'Past due'), ('deleted', 'Deleted')], max_length=8),
+            model_name="customer",
+            name="status",
+            field=models.CharField(
+                choices=[
+                    ("active", "Active"),
+                    ("trialing", "Trialing"),
+                    ("paste_due", "Past due"),
+                    ("deleted", "Deleted"),
+                ],
+                max_length=8,
+            ),
         ),
         migrations.AlterField(
-            model_name='customer',
-            name='subscription_type',
-            field=models.CharField(choices=[('monthly', 'Monthly'), ('sixmonths', 'Six months'), ('annual', 'Annual')], max_length=9),
+            model_name="customer",
+            name="subscription_type",
+            field=models.CharField(
+                choices=[
+                    ("monthly", "Monthly"),
+                    ("sixmonths", "Six months"),
+                    ("annual", "Annual"),
+                ],
+                max_length=9,
+            ),
         ),
     ]

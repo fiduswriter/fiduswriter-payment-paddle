@@ -14,30 +14,30 @@ class Proxy(DjangoHandlerMixin, RequestHandler):
             self.set_status(401)
             self.finish()
             return
-        if relative_url == 'update_subscription':
+        if relative_url == "update_subscription":
             customer = Customer.objects.filter(user=self.user).first()
             if not customer:
                 self.set_status(404)
                 self.finish()
                 return
             post_data = {
-                'plan_id': self.get_argument('plan_id'),
-                'vendor_id': settings.PADDLE_VENDOR_ID,
-                'vendor_auth_code': settings.PADDLE_API_KEY,
-                'subscription_id': customer.subscription_id
+                "plan_id": self.get_argument("plan_id"),
+                "vendor_id": settings.PADDLE_VENDOR_ID,
+                "vendor_auth_code": settings.PADDLE_API_KEY,
+                "subscription_id": customer.subscription_id,
             }
             body = urlencode(post_data)
             http = AsyncHTTPClient()
             response = await http.fetch(
                 HTTPRequest(
                     (
-                        'https://vendors.paddle.com/api/2.0/'
-                        'subscription/users/update'
+                        "https://vendors.paddle.com/api/2.0/"
+                        "subscription/users/update"
                     ),
-                    'POST',
+                    "POST",
                     None,
                     body,
-                    request_timeout=40.0
+                    request_timeout=40.0,
                 )
             )
             self.write(response.body)
