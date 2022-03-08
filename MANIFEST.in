@@ -1,0 +1,8 @@
+include LICENSE
+include README.rst
+recursive-include fiduswriter/payment/static *
+recursive-include fiduswriter/payment/locale *
+prune travis
+prune fiduswriter/venv
+prune venv
+prune fiduswriter/configuration.py
