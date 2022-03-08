@@ -6,7 +6,8 @@ export class PaymentDocumentsOverview {
     }
 
     init() {
-        const goToNewDocument = this.overview.goToNewDocument
+
+        this.overview.goToNewDocumentAction = this.overview.goToNewDocument
         this.overview.goToNewDocument = (...args) => {
             this.overview.app.getSubscription().then(() => {
                 if (
@@ -14,7 +15,7 @@ export class PaymentDocumentsOverview {
                     this.overview.app.subscription.subscribed ||
                     this.overview.documentList.length < 2
                 ) {
-                    goToNewDocument(...args)
+                    this.overview.goToNewDocumentAction(...args)
                 } else {
                     const dialog = new Dialog({
                         title: gettext('Subscription warning'),
