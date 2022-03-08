@@ -6,14 +6,15 @@ export class PaymentDocumentsOverview {
     }
 
     init() {
-        this.overview.goToNewDocument = id => {
+        const goToNewDocument = this.overview.goToNewDocument
+        this.overview.goToNewDocument = (...args) => {
             this.overview.app.getSubscription().then(() => {
                 if (
                     this.overview.app.subscription.staff ||
                     this.overview.app.subscription.subscribed ||
                     this.overview.documentList.length < 2
                 ) {
-                    this.overview.app.goTo(`/document/${id}/`)
+                    goToNewDocument(...args)
                 } else {
                     const dialog = new Dialog({
                         title: gettext('Subscription warning'),
