@@ -27,7 +27,8 @@ export class PaymentPage {
         dom.classList.add('payment')
         dom.innerHTML = baseBodyTemplate({
             contents: advertisementTemplate(Object.assign({}, this.app.paddleInfo, this.app.subscription)),
-            user: this.user
+            user: this.user,
+            app: this.app
         })
         document.body = dom
         setDocTitle(gettext('Plan overview'), this.app)
