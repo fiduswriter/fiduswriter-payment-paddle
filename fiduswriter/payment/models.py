@@ -32,3 +32,6 @@ class Customer(models.Model):
     cancel_url = models.CharField(max_length=256)
     update_url = models.CharField(max_length=256)
     cancelation_date = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.user.readable_name} ({self.status})"
