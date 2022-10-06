@@ -3,7 +3,7 @@ import datetime
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
@@ -63,6 +63,7 @@ def webhook(request):
         "subscription_cancelled",
     ]:
         return JsonResponse({}, status=status)
+    User = get_user_model()
     user_id = int(request.POST["passthrough"])
     user = User.objects.filter(id=user_id).first()
     if not user:
