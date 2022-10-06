@@ -6,12 +6,12 @@ import {PreloginPage} from "../prelogin"
 export class PricingPage extends PreloginPage {
     constructor(config) {
         super(config)
-        this.title = gettext('Pricing')
+        this.title = gettext("Pricing")
     }
 
     init() {
         ensureCSS([
-            'payment.css'
+            "payment.css"
         ])
         return this.app.getPaddleInfo().then(
             () => {

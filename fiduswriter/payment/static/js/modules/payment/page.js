@@ -12,7 +12,7 @@ export class PaymentPage {
     init() {
         return this.app.getSubscription().then(() => {
             ensureCSS([
-                'payment.css'
+                "payment.css"
             ])
             return whenReady()
         }).then(() => {
@@ -23,15 +23,15 @@ export class PaymentPage {
     }
 
     render() {
-        const dom = document.createElement('body')
-        dom.classList.add('payment')
+        const dom = document.createElement("body")
+        dom.classList.add("payment")
         dom.innerHTML = baseBodyTemplate({
             contents: advertisementTemplate(Object.assign({}, this.app.paddleInfo, this.app.subscription)),
             user: this.user,
             app: this.app
         })
         document.body = dom
-        setDocTitle(gettext('Plan overview'), this.app)
+        setDocTitle(gettext("Plan overview"), this.app)
         const feedbackTab = new FeedbackTab()
         feedbackTab.init()
         this.bind()
@@ -39,13 +39,13 @@ export class PaymentPage {
 
     bind() {
 
-        const subscriptionMonthlyButton = document.querySelector('.subscription.monthly')
-        const subscriptionSixMonthsButton = document.querySelector('.subscription.sixmonths')
-        const subscriptionAnnualButton = document.querySelector('.subscription.annual')
+        const subscriptionMonthlyButton = document.querySelector(".subscription.monthly")
+        const subscriptionSixMonthsButton = document.querySelector(".subscription.sixmonths")
+        const subscriptionAnnualButton = document.querySelector(".subscription.annual")
 
-        subscriptionMonthlyButton.addEventListener('click', () => this.handleClick('monthly'))
-        subscriptionSixMonthsButton.addEventListener('click', () => this.handleClick('sixmonths'))
-        subscriptionAnnualButton.addEventListener('click', () => this.handleClick('annual'))
+        subscriptionMonthlyButton.addEventListener("click", () => this.handleClick("monthly"))
+        subscriptionSixMonthsButton.addEventListener("click", () => this.handleClick("sixmonths"))
+        subscriptionAnnualButton.addEventListener("click", () => this.handleClick("annual"))
 
     }
 
@@ -53,51 +53,51 @@ export class PaymentPage {
         if (this.app.subscription.subscribed && !this.app.subscription.subscription_end) {
             if (this.app.subscription.subscribed === duration) {
                 const dialog = new Dialog({
-                    id: 'figure-dialog',
+                    id: "figure-dialog",
                     title: gettext("Modify subscription"),
-                    body: gettext('Please choose whether to update payment details or to cancel your subscription.'),
+                    body: gettext("Please choose whether to update payment details or to cancel your subscription."),
                     buttons: [
                         {
-                            text: gettext('Update payment details'),
-                            classes: 'fw-dark',
+                            text: gettext("Update payment details"),
+                            classes: "fw-dark",
                             click: () => window.Paddle.Checkout.open({
                                 override: this.app.subscription.update_url,
                                 success: window.location.href
                             })
                         },
                         {
-                            text: gettext('Cancel subscription'),
-                            classes: 'fw-dark',
+                            text: gettext("Cancel subscription"),
+                            classes: "fw-dark",
                             click: () => window.Paddle.Checkout.open({
                                 override: this.app.subscription.cancel_url,
                                 success: window.location.href
                             })
                         },
                         {
-                            type: 'cancel'
+                            type: "cancel"
                         }
                     ]
                 })
 
                 dialog.open()
-            } else if (this.app.subscription.status === 'trialing') {
+            } else if (this.app.subscription.status === "trialing") {
                 const dialog = new Dialog({
-                    title: gettext('Plan change not possible'),
-                    body: gettext('Unfortunately it is not possible to switch plans during the trial period.'),
-                    buttons: [{type: 'close'}]
+                    title: gettext("Plan change not possible"),
+                    body: gettext("Unfortunately it is not possible to switch plans during the trial period."),
+                    buttons: [{type: "close"}]
                 })
                 dialog.open()
             } else {
                 const dialog = new Dialog({
-                    id: 'figure-dialog',
+                    id: "figure-dialog",
                     title: gettext("Switch subscription"),
-                    body: gettext('Do you really want to switch your subscription type?'),
+                    body: gettext("Do you really want to switch your subscription type?"),
                     buttons: [
                         {
-                            text: gettext('Yes'),
-                            classes: 'fw-dark',
+                            text: gettext("Yes"),
+                            classes: "fw-dark",
                             click: () => post(
-                                '/proxy/payment/update_subscription',
+                                "/proxy/payment/update_subscription",
                                 {
                                     plan_id: this.app.paddleInfo[duration].id,
                                 }
@@ -114,7 +114,7 @@ export class PaymentPage {
                             )
                         },
                         {
-                            type: 'cancel'
+                            type: "cancel"
                         }
                     ]
                 })

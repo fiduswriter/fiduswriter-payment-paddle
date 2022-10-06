@@ -9,11 +9,11 @@ export class PaymentApp {
     }
 
     init() {
-        this.app.routes['payment'] = {
+        this.app.routes["payment"] = {
             requireLogin: true,
             open: () => new PaymentPage(this.app.config)
         }
-        this.app.routes['pricing'] = {
+        this.app.routes["pricing"] = {
             open: () => new PricingPage(this.app.config)
         }
 
@@ -22,7 +22,7 @@ export class PaymentApp {
                 return Promise.resolve()
             }
             return new Promise(resolve => {
-                const paddleScript = document.createElement('script')
+                const paddleScript = document.createElement("script")
                 paddleScript.onload = () => {
                     resolve()
                 }
@@ -30,13 +30,13 @@ export class PaymentApp {
                 paddleScript.src = "https://cdn.paddle.com/paddle/paddle.js"
             }).then(
                 () => postJson(
-                    '/api/payment/get_paddle_info/'
+                    "/api/payment/get_paddle_info/"
                 )
             ).then(({json}) => {
-                const monthlyPlanId = json['monthly_plan_id'],
-                    sixMonthsPlanId = json['six_months_plan_id'],
-                    annualPlanId = json['annual_plan_id'],
-                    vendorId = json['vendor_id']
+                const monthlyPlanId = json["monthly_plan_id"],
+                    sixMonthsPlanId = json["six_months_plan_id"],
+                    annualPlanId = json["annual_plan_id"],
+                    vendorId = json["vendor_id"]
                 window.Paddle.Setup({
                     vendor: vendorId
                 })
@@ -85,7 +85,7 @@ export class PaymentApp {
             }
             return this.app.getPaddleInfo().then(
                 () => postJson(
-                    '/api/payment/get_subscription_details/'
+                    "/api/payment/get_subscription_details/"
                 )
             ).then(({json}) => {
                 this.app.subscription = json

@@ -18,18 +18,18 @@ export class PaymentDocumentsOverview {
                     this.overview.goToNewDocumentAction(...args)
                 } else {
                     const dialog = new Dialog({
-                        title: gettext('Subscription warning'),
-                        body: `<p>${gettext('You have run out of free documents. Sign up for a subscription to create more documents.')}</p>`,
+                        title: gettext("Subscription warning"),
+                        body: `<p>${gettext("You have run out of free documents. Sign up for a subscription to create more documents.")}</p>`,
                         buttons: [
                             {
-                                text: gettext('Go to subscription page'),
-                                classes: 'fw-dark',
+                                text: gettext("Go to subscription page"),
+                                classes: "fw-dark",
                                 click: () => {
                                     dialog.close()
-                                    this.overview.app.goTo(`/payment/`)
+                                    this.overview.app.goTo("/payment/")
                                 }
                             },
-                            {type: 'close'}
+                            {type: "close"}
                         ]
                     })
                     dialog.open()

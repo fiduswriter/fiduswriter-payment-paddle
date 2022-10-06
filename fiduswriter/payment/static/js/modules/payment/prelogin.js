@@ -7,7 +7,7 @@ export class PaymentPrelogin {
         this.preloginPage.footerLinks.push(
             {
                 text: gettext("Pricing"),
-                link: '/pricing/'
+                link: "/pricing/"
             }
         )
     }
