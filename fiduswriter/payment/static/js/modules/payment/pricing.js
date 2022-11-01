@@ -11,7 +11,7 @@ export class PricingPage extends PreloginPage {
 
     init() {
         ensureCSS([
-            "payment.css"
+            staticUrl("css/payment.css")
         ])
         return this.app.getPaddleInfo().then(
             () => {

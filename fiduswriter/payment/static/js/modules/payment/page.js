@@ -12,7 +12,7 @@ export class PaymentPage {
     init() {
         return this.app.getSubscription().then(() => {
             ensureCSS([
-                "payment.css"
+                staticUrl("css/payment.css")
             ])
             return whenReady()
         }).then(() => {
