@@ -44,7 +44,7 @@ setup(
     license="AGPL License",
     description=("A Fidus Writer plugin to allow payment through Paddle"),
     long_description=README,
-    url="https://www.github.org/fiduswriter/fiduswriter-payment-paddle",
+    url="https://www.github.com/fiduswriter/fiduswriter-payment-paddle",
     author="Johannes Wilm",
     author_email="johannes@fiduswriter.org",
     classifiers=[

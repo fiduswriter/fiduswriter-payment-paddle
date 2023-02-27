@@ -11,5 +11,10 @@ urlpatterns = [
         views.get_subscription_details,
         name="get_subscription_details",
     ),
+    re_path(
+        "^update_subscription/$",
+        views.update_subscription,
+        name="update_subscription",
+    ),
     re_path("webhook/$", views.webhook, name="webhook"),
 ]

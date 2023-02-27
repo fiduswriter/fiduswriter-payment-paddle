@@ -4,25 +4,25 @@
 Installation
 ------------
 
-1. Sign up with Paddle.com, create plans and register a webhook (the URL is https:YOURWEBSITE.COM/api/payment/webhook/).
+1. Sign up with Paddle.com, create plans and register a webhook (the URL is https//YOURWEBSITE.COM/api/payment/webhook/).
 
-2. Add settings in configuration.py:
+2. In the configuration.py file, add "payment" to "INSTALLED_APPS"
 
-    > Under "INSTALLED_APPS" in configuration.py, add "payment"
+3. Add these settings to configuration.py:
 
-    > PADDLE_VENDOR_ID = 547628
+    PADDLE_VENDOR_ID = 547628
 
-    > PADDLE_MONTHLY_PLAN_ID = 304958
+    PADDLE_MONTHLY_PLAN_ID = 304958
 
-    > PADDLE_SIX_MONTHS_PLAN_ID = 328473
+    PADDLE_SIX_MONTHS_PLAN_ID = 328473
 
-    > PADDLE_ANNUAL_PLAN_ID = 232332
+    PADDLE_ANNUAL_PLAN_ID = 232332
 
-    > PADDLE_PUBLIC_KEY = '''-----BEGIN PUBLIC KEY-----
-    > ...
-    > -----END PUBLIC KEY-----'''
+    PADDLE_PUBLIC_KEY = '''-----BEGIN PUBLIC KEY-----
+    ...
+    -----END PUBLIC KEY-----'''
 
-    > PADDLE_API_KEY = '234234a4b...36'
+    PADDLE_API_KEY = '234234a4b...36'
 
 
 Additional steps if you don't use the Ubuntu Snap

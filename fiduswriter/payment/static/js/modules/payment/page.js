@@ -97,7 +97,7 @@ export class PaymentPage {
                             text: gettext("Yes"),
                             classes: "fw-dark",
                             click: () => post(
-                                "/proxy/payment/update_subscription",
+                                "/api/payment/update_subscription",
                                 {
                                     plan_id: this.app.paddleInfo[duration].id,
                                 }

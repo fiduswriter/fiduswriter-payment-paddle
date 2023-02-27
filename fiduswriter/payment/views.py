@@ -1,8 +1,11 @@
 import datetime
+from httpx import AsyncClient
+from urllib.parse import urlencode
+from asgiref.sync import async_to_sync, sync_to_async
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseForbidden
 from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
@@ -47,6 +50,29 @@ def get_subscription_details(request):
     else:
         response["subscribed"] = False
     return JsonResponse(response, status=200)
+
+
+@sync_to_async
+@login_required
+@require_POST
+@async_to_sync
+async def update_subscription(request):
+    print("update subscription")
+    customer = Customer.objects.filter(user=request.user).first()
+    if not customer:
+        return HttpResponseForbidden()
+    post_data = {
+        "plan_id": request.POST["plan_id"],
+        "vendor_id": settings.PADDLE_VENDOR_ID,
+        "vendor_auth_code": settings.PADDLE_API_KEY,
+        "subscription_id": customer.subscription_id,
+    }
+    async with AsyncClient(timeout=40) as client:
+        response = await client.post(
+            "https://vendors.paddle.com/api/2.0/subscription/users/update",
+            content=urlencode(post_data),
+        )
+    return HttpResponse(response.content, status=response.status_code)
 
 
 @csrf_exempt
@@ -110,5 +136,4 @@ def webhook(request):
     else:
         customer.subscription_type = "monthly"
     customer.save()
-
     return JsonResponse({}, status=status)
