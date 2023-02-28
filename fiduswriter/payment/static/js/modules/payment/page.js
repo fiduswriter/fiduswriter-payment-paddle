@@ -72,7 +72,7 @@ export class PaymentPage {
                             classes: "fw-dark",
                             click: () => window.Paddle.Checkout.open({
                                 override: this.app.subscription.update_url,
-                                success: window.location.href
+                                successCallback: () => this.updateSubscriptionInfo()
                             })
                         },
                         {
@@ -80,7 +80,7 @@ export class PaymentPage {
                             classes: "fw-dark",
                             click: () => window.Paddle.Checkout.open({
                                 override: this.app.subscription.cancel_url,
-                                success: window.location.href
+                                successCallback: () => this.updateSubscriptionInfo()
                             })
                         },
                         {
