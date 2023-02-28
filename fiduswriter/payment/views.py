@@ -62,11 +62,14 @@ async def update_subscription(request):
     customer = Customer.objects.filter(user=request.user).first()
     if not customer:
         return HttpResponseForbidden()
-    post_data = {
+    data = {
         "plan_id": request.POST["plan_id"],
         "vendor_id": settings.PADDLE_VENDOR_ID,
         "vendor_auth_code": settings.PADDLE_API_KEY,
         "subscription_id": customer.subscription_id,
+    }
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded"
     }
     if hasattr(settings, "PADDLE_SANDBOX") and settings.PADDLE_SANDBOX == True:
         domain = "sandbox-vendors.paddle.com"
@@ -75,7 +78,8 @@ async def update_subscription(request):
     async with AsyncClient(timeout=40) as client:
         response = await client.post(
             f"https://{domain}/api/2.0/subscription/users/update",
-            content=urlencode(post_data),
+            headers=headers,
+            data=data,
         )
     return HttpResponse(response.content, status=response.status_code)
 

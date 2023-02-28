@@ -6,9 +6,17 @@ Installation
 
 1. Sign up with Paddle.com, create plans and register a webhook (the URL is https//YOURWEBSITE.COM/api/payment/webhook/).
 
-2. In the configuration.py file, add "payment" to "INSTALLED_APPS"
+2. Enable subscription for the webhook for these events:
 
-3. Add these settings to configuration.py:
+* Subscription Created
+
+* Subscription Updated
+
+* Subscription Cancelled
+
+3. In the configuration.py file, add "payment" to "INSTALLED_APPS"
+
+4. Add these settings to configuration.py:
 
 
 ```python
