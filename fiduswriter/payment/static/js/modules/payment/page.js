@@ -49,6 +49,16 @@ export class PaymentPage {
 
     }
 
+    updateSubscriptionInfo() {
+        delete this.app.subscription
+        activateWait()
+        // Wait five seconds, then reload subscription status
+        setTimeout(() => {
+            deactivateWait()
+            this.init()
+        }, 5000)
+    }
+
     handleClick(duration) {
         if (this.app.subscription.subscribed && !this.app.subscription.subscription_end) {
             if (this.app.subscription.subscribed === duration) {
@@ -102,15 +112,7 @@ export class PaymentPage {
                                     plan_id: this.app.paddleInfo[duration].id,
                                 }
                             ).then(
-                                () => {
-                                    delete this.app.subscription
-                                    activateWait()
-                                    // Wait five seconds, then reload subscription status
-                                    setTimeout(() => {
-                                        deactivateWait()
-                                        this.init()
-                                    }, 5000)
-                                }
+                                () => this.updateSubscriptionInfo()
                             )
                         },
                         {
@@ -129,7 +131,7 @@ export class PaymentPage {
                 email: this.user.emails.find(email => email.primary).address,
                 allowQuantity: false,
                 passthrough: String(this.user.id),
-                success: window.location.href
+                successCallback: () => this.updateSubscriptionInfo()
             })
         }
     }
