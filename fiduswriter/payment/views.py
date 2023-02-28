@@ -19,6 +19,8 @@ from .validate import validate_webhook_request
 @ajax_required
 def get_paddle_info(request):
     response = {}
+    if hasattr(settings, "PADDLE_SANDBOX") and settings.PADDLE_SANDBOX == True:
+        response["sandbox"] = True
     response["vendor_id"] = settings.PADDLE_VENDOR_ID
     response["monthly_plan_id"] = settings.PADDLE_MONTHLY_PLAN_ID
     response["six_months_plan_id"] = settings.PADDLE_SIX_MONTHS_PLAN_ID
@@ -57,7 +59,6 @@ def get_subscription_details(request):
 @require_POST
 @async_to_sync
 async def update_subscription(request):
-    print("update subscription")
     customer = Customer.objects.filter(user=request.user).first()
     if not customer:
         return HttpResponseForbidden()
@@ -67,9 +68,13 @@ async def update_subscription(request):
         "vendor_auth_code": settings.PADDLE_API_KEY,
         "subscription_id": customer.subscription_id,
     }
+    if hasattr(settings, "PADDLE_SANDBOX") and settings.PADDLE_SANDBOX == True:
+        domain = "sandbox-vendors.paddle.com"
+    else:
+        domain = "vendors.paddle.com"
     async with AsyncClient(timeout=40) as client:
         response = await client.post(
-            "https://vendors.paddle.com/api/2.0/subscription/users/update",
+            f"https://{domain}/api/2.0/subscription/users/update",
             content=urlencode(post_data),
         )
     return HttpResponse(response.content, status=response.status_code)

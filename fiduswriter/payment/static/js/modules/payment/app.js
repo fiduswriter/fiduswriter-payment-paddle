@@ -37,6 +37,9 @@ export class PaymentApp {
                     sixMonthsPlanId = json["six_months_plan_id"],
                     annualPlanId = json["annual_plan_id"],
                     vendorId = json["vendor_id"]
+                if (json["sandbox"]) {
+                    window.Paddle.Environment.set('sandbox')
+                }
                 window.Paddle.Setup({
                     vendor: vendorId
                 })

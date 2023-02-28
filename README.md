@@ -10,27 +10,32 @@ Installation
 
 3. Add these settings to configuration.py:
 
-    PADDLE_VENDOR_ID = 547628
 
-    PADDLE_MONTHLY_PLAN_ID = 304958
+```python
+PADDLE_SANDBOX = True  # Only needed for testing with paddle sandbox.
 
-    PADDLE_SIX_MONTHS_PLAN_ID = 328473
+PADDLE_VENDOR_ID = 547628
 
-    PADDLE_ANNUAL_PLAN_ID = 232332
+PADDLE_MONTHLY_PLAN_ID = 304958
 
-    PADDLE_PUBLIC_KEY = '''-----BEGIN PUBLIC KEY-----
-    ...
-    -----END PUBLIC KEY-----'''
+PADDLE_SIX_MONTHS_PLAN_ID = 328473
 
-    PADDLE_API_KEY = '234234a4b...36'
+PADDLE_ANNUAL_PLAN_ID = 232332
 
+PADDLE_PUBLIC_KEY = '''-----BEGIN PUBLIC KEY-----
+...
+-----END PUBLIC KEY-----'''
+
+PADDLE_API_KEY = '234234a4b...36'
+```
 
 Additional steps if you don't use the Ubuntu Snap
 -------------------------------------------------
 
 1. Install `pycryptodome` and `phpserialize`:
-    > pip install pycryptodome phpserialize
+
+    pip install pycryptodome phpserialize
 
 2. Run:
 
-    > python manage.py migrate
+    python manage.py migrate
