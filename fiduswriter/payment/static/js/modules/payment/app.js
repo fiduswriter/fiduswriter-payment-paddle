@@ -38,7 +38,7 @@ export class PaymentApp {
                     annualPlanId = json["annual_plan_id"],
                     vendorId = json["vendor_id"]
                 if (json["sandbox"]) {
-                    window.Paddle.Environment.set('sandbox')
+                    window.Paddle.Environment.set("sandbox")
                 }
                 window.Paddle.Setup({
                     vendor: vendorId

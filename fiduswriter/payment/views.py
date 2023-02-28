@@ -1,6 +1,5 @@
 import datetime
 from httpx import AsyncClient
-from urllib.parse import urlencode
 from asgiref.sync import async_to_sync, sync_to_async
 
 from django.conf import settings
@@ -19,7 +18,7 @@ from .validate import validate_webhook_request
 @ajax_required
 def get_paddle_info(request):
     response = {}
-    if hasattr(settings, "PADDLE_SANDBOX") and settings.PADDLE_SANDBOX == True:
+    if hasattr(settings, "PADDLE_SANDBOX") and settings.PADDLE_SANDBOX is True:
         response["sandbox"] = True
     response["vendor_id"] = settings.PADDLE_VENDOR_ID
     response["monthly_plan_id"] = settings.PADDLE_MONTHLY_PLAN_ID
@@ -68,10 +67,8 @@ async def update_subscription(request):
         "vendor_auth_code": settings.PADDLE_API_KEY,
         "subscription_id": customer.subscription_id,
     }
-    headers = {
-        "Content-Type": "application/x-www-form-urlencoded"
-    }
-    if hasattr(settings, "PADDLE_SANDBOX") and settings.PADDLE_SANDBOX == True:
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    if hasattr(settings, "PADDLE_SANDBOX") and settings.PADDLE_SANDBOX is True:
         domain = "sandbox-vendors.paddle.com"
     else:
         domain = "vendors.paddle.com"
