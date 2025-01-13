@@ -4,11 +4,9 @@ export class PaymentPrelogin {
     }
 
     init() {
-        this.preloginPage.footerLinks.push(
-            {
-                text: gettext("Pricing"),
-                link: "/pricing/"
-            }
-        )
+        this.preloginPage.footerLinks.push({
+            text: gettext("Pricing"),
+            link: "/pricing/"
+        })
     }
 }

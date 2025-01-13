@@ -1,5 +1,12 @@
-export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, subscription_end, infoOnly = false}) => `
-<div class="pricing-guide${ infoOnly ? " info-only" : ""}">
+export const advertisementTemplate = ({
+    subscribed,
+    monthly,
+    sixmonths,
+    annual,
+    subscription_end,
+    infoOnly = false
+}) => `
+<div class="pricing-guide${infoOnly ? " info-only" : ""}">
     <h1>${gettext("Pricing Guide")}</h1>
     <p>
         ${gettext("You can write 2 documents on the Free Plan without any trial period.")}
@@ -17,16 +24,16 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                 <li><i class="fa-li fa fa-check"></i>${gettext("Unlimited exports")}</li>
             </ul>
             <div class="price-offer">
-                <button${ subscribed && !subscription_end ? " class=\"subscription\"" : ""}>
+                <button${subscribed && !subscription_end ? ' class="subscription"' : ""}>
                 ${
-    infoOnly ?
-        gettext("Default") :
-        subscribed ?
-            subscription_end ?
-                gettext("Downgrade on ") + subscription_end :
-                gettext("Default") :
-            gettext("Current")
-}
+                    infoOnly
+                        ? gettext("Default")
+                        : subscribed
+                          ? subscription_end
+                              ? gettext("Downgrade on ") + subscription_end
+                              : gettext("Default")
+                          : gettext("Current")
+                }
                 </button>
             </div>
         </div>
@@ -43,18 +50,18 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                 <p><strong>${gettext("Monthly payments")}</strong></p>
                 <button class="subscription monthly${subscribed === "monthly" ? " current" : ""}">
                     ${
-    infoOnly ?
-        "" :
-        `${
-            subscribed === "monthly" ?
-                subscription_end ?
-                    gettext("Resubscribe") :
-                    gettext("Modify") :
-                !subscribed ?
-                    gettext("Sign up") :
-                    gettext("Switch")
-        }: `
-}
+                        infoOnly
+                            ? ""
+                            : `${
+                                  subscribed === "monthly"
+                                      ? subscription_end
+                                          ? gettext("Resubscribe")
+                                          : gettext("Modify")
+                                      : !subscribed
+                                        ? gettext("Sign up")
+                                        : gettext("Switch")
+                              }: `
+                    }
                     ${monthly.price}
                 </button>
                 ${monthly.trial ? `<div>${gettext("Trial")}: ${monthly.trial} ${gettext("days")}</div>` : ""}
@@ -63,18 +70,18 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                 <p><strong>${gettext("Semiannual payments")}</strong></p>
                 <button class="subscription sixmonths${subscribed === "sixmonths" ? " current" : ""}">
                     ${
-    infoOnly ?
-        "" :
-        `${
-            subscribed === "sixmonths" ?
-                subscription_end ?
-                    gettext("Resubscribe") :
-                    gettext("Modify") :
-                !subscribed ?
-                    gettext("Sign up") :
-                    gettext("Switch")
-        }: `
-}
+                        infoOnly
+                            ? ""
+                            : `${
+                                  subscribed === "sixmonths"
+                                      ? subscription_end
+                                          ? gettext("Resubscribe")
+                                          : gettext("Modify")
+                                      : !subscribed
+                                        ? gettext("Sign up")
+                                        : gettext("Switch")
+                              }: `
+                    }
                     ${sixmonths.price}
                 </button>
                 ${sixmonths.trial ? `<div>${gettext("Trial")}: ${sixmonths.trial} ${gettext("days")}</div>` : ""}
@@ -83,18 +90,18 @@ export const advertisementTemplate = ({subscribed, monthly, sixmonths, annual, s
                 <p><strong>${gettext("Annual payments")}</strong></p>
                 <button class="subscription annual${subscribed === "annual" ? " current" : ""}">
                     ${
-    infoOnly ?
-        "" :
-        `${
-            subscribed === "annual" ?
-                subscription_end ?
-                    gettext("Resubscribe") :
-                    gettext("Modify") :
-                !subscribed ?
-                    gettext("Sign up") :
-                    gettext("Switch")
-        }: `
-}
+                        infoOnly
+                            ? ""
+                            : `${
+                                  subscribed === "annual"
+                                      ? subscription_end
+                                          ? gettext("Resubscribe")
+                                          : gettext("Modify")
+                                      : !subscribed
+                                        ? gettext("Sign up")
+                                        : gettext("Switch")
+                              }: `
+                    }
                     ${annual.price}
                 </button>
                 ${annual.trial ? `<div>${gettext("Trial")}: ${annual.trial} ${gettext("days")}</div>` : ""}

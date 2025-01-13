@@ -5,7 +5,9 @@ from setuptools.command.build_py import build_py as _build_py
 
 
 def read(name):
-    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), name)) as f:
+    with open(
+        os.path.join(os.path.dirname(os.path.realpath(__file__)), name)
+    ) as f:
         return f.read()
 
 
@@ -39,7 +41,9 @@ setup(
     name="fiduswriter-payment-paddle",
     version="3.11.3",
     packages=find_namespace_packages(),
-    exclude_package_data={"": ["configuration.py", "django-admin.py", "build/*"]},
+    exclude_package_data={
+        "": ["configuration.py", "django-admin.py", "build/*"]
+    },
     include_package_data=True,
     license="AGPL License",
     description=("A Fidus Writer plugin to allow payment through Paddle"),

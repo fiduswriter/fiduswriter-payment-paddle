@@ -6,7 +6,6 @@ export class PaymentDocumentsOverview {
     }
 
     init() {
-
         this.overview.goToNewDocumentAction = this.overview.goToNewDocument
         this.overview.goToNewDocument = (...args) => {
             this.overview.app.getSubscription().then(() => {

@@ -12,5 +12,4 @@ export class PaymentMenuItem {
             order: 100
         })
     }
-
 }
