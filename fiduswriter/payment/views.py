@@ -1,6 +1,5 @@
 import datetime
 from httpx import AsyncClient
-from asgiref.sync import async_to_sync, sync_to_async
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -53,10 +52,8 @@ def get_subscription_details(request):
     return JsonResponse(response, status=200)
 
 
-@sync_to_async
 @login_required
 @require_POST
-@async_to_sync
 async def update_subscription(request):
     customer = Customer.objects.filter(user=request.user).first()
     if not customer:
