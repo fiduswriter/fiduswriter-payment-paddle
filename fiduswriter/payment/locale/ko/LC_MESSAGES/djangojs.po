@@ -1,206 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Fidus Writer payment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 09:57+0000\n"
-"Language: de\n"
+"POT-Creation-Date: 2026-05-14 09:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: payment/static/js/modules/payment/documents_overview.js:20
 msgid "Subscription warning"
-msgstr "Abowarnung"
+msgstr "구독 경고"
 
 #: payment/static/js/modules/payment/documents_overview.js:21
 msgid ""
 "You have run out of free documents. Sign up for a subscription to create "
 "more documents."
-msgstr ""
-"Sie haben keine freien Dokumente mehr. Melden Sie sich für ein Abonnement "
-"an, um weitere Dokumente zu erstellen."
+msgstr "무료 문서가 부족합니다. 더 많은 문서를 작성하려면 구독에 가입하세요."
 
 #: payment/static/js/modules/payment/documents_overview.js:24
 msgid "Go to subscription page"
-msgstr "Gehen Sie zur Abonnementseite"
+msgstr "구독 페이지로 이동"
 
 #: payment/static/js/modules/payment/menu.js:9
 #: payment/static/js/modules/payment/page.js:92
 msgid "Modify subscription"
-msgstr "Abonnement ändern"
+msgstr "구독 수정"
 
 #: payment/static/js/modules/payment/menu.js:11
 msgid "Subscription"
-msgstr "Abonnement"
+msgstr "신청"
 
 #: payment/static/js/modules/payment/page.js:46
 msgid "Plan overview"
-msgstr "Zahlungsplanübersicht"
+msgstr "계획 개요"
 
 #: payment/static/js/modules/payment/page.js:94
 msgid ""
 "Please choose whether to update payment details or to cancel your "
 "subscription."
-msgstr ""
-"Bitte wählen Sie, ob Sie die Zahlungsdetails aktualisieren oder Ihr "
-"Abonnement kündigen möchten."
+msgstr "결제 세부정보를 업데이트할지, 구독을 취소할지 선택하세요."
 
 #: payment/static/js/modules/payment/page.js:98
 msgid "Update payment details"
-msgstr "Zahlungsdetails aktualisieren"
+msgstr "결제 세부정보 업데이트"
 
 #: payment/static/js/modules/payment/page.js:108
 msgid "Cancel subscription"
-msgstr "Abonnement beenden"
+msgstr "구독 취소"
 
 #: payment/static/js/modules/payment/page.js:126
 msgid "Plan change not possible"
-msgstr "Planänderung nicht möglich"
+msgstr "요금제 변경 불가"
 
 #: payment/static/js/modules/payment/page.js:128
 msgid ""
 "Unfortunately it is not possible to switch plans during the trial period."
-msgstr ""
-"Leider ist es nicht möglich, die Tarife während der Probezeit zu wechseln."
+msgstr "아쉽게도 체험 기간 중에는 요금제를 변경할 수 없습니다."
 
 #: payment/static/js/modules/payment/page.js:136
 msgid "Switch subscription"
-msgstr "Abo wechseln"
+msgstr "구독 전환"
 
 #: payment/static/js/modules/payment/page.js:138
 msgid "Do you really want to switch your subscription type?"
-msgstr "Möchten Sie Ihren Abonnementtyp wirklich ändern?"
+msgstr "정말로 구독 유형을 전환하시겠습니까?"
 
 #: payment/static/js/modules/payment/page.js:142
 msgid "Yes"
-msgstr "Ja"
+msgstr "예"
 
 #: payment/static/js/modules/payment/prelogin.js:8
 #: payment/static/js/modules/payment/pricing.js:9
 msgid "Pricing"
-msgstr "Preise"
+msgstr "가격"
 
 #: payment/static/js/modules/payment/templates.js:10
 msgid "Pricing Guide"
-msgstr "Preise"
+msgstr "가격 안내"
 
 #: payment/static/js/modules/payment/templates.js:12
 msgid "You can write 2 documents on the Free Plan without any trial period."
-msgstr ""
-"Sie können 2 Dokumente mit der kostenlosen Version ohne Probezeit  "
-"schreiben."
+msgstr "무료 플랜에서는 체험 기간 없이 2개의 문서를 작성할 수 있습니다."
 
 #: payment/static/js/modules/payment/templates.js:14
 msgid "If you want to write more documents, you can upgrade your plan below."
-msgstr ""
-"Wenn Sie weitere Dokumente verfassen möchten, können Sie Ihren Zahlungsplan "
-"weiter unten aktualisieren."
+msgstr "더 많은 문서를 작성하고 싶다면 아래 계획을 업그레이드할 수 있습니다."
 
 #: payment/static/js/modules/payment/templates.js:18
 msgid "Basic"
-msgstr "Einfach"
+msgstr "기초적인"
 
 #: payment/static/js/modules/payment/templates.js:19
 msgid "Free Plan"
-msgstr "Kostenlos"
+msgstr "무료 플랜"
 
 #: payment/static/js/modules/payment/templates.js:21
 msgid "2 free documents"
-msgstr "2 Dokumente"
+msgstr "무료 문서 2개"
 
 #: payment/static/js/modules/payment/templates.js:22
 #: payment/static/js/modules/payment/templates.js:45
 msgid "Unlimited collaborators"
-msgstr "Unbegrenzte Anzahl von Kontakten"
+msgstr "무제한 공동작업자"
 
 #: payment/static/js/modules/payment/templates.js:23
 #: payment/static/js/modules/payment/templates.js:46
 msgid "Unlimited bibliography items"
-msgstr "Unbegrenzte Anzahl von Literaturangaben"
+msgstr "무제한 참고문헌 항목"
 
 #: payment/static/js/modules/payment/templates.js:24
 #: payment/static/js/modules/payment/templates.js:47
 msgid "Unlimited exports"
-msgstr "Unbegrenzte Exporte"
+msgstr "무제한 내보내기"
 
 #: payment/static/js/modules/payment/templates.js:30
 #: payment/static/js/modules/payment/templates.js:34
 msgid "Default"
-msgstr "Standard"
+msgstr "기본"
 
 #: payment/static/js/modules/payment/templates.js:33
 msgid "Downgrade on "
-msgstr "Downgrade am "
+msgstr "다운그레이드 "
 
 #: payment/static/js/modules/payment/templates.js:35
 msgid "Current"
-msgstr "Aktuell"
+msgstr "현재의"
 
 #: payment/static/js/modules/payment/templates.js:41
 msgid "Premium"
-msgstr "Premium"
+msgstr "프리미엄"
 
 #: payment/static/js/modules/payment/templates.js:42
 msgid "Paid Plan"
-msgstr "Bezahlt"
+msgstr "유료 플랜"
 
 #: payment/static/js/modules/payment/templates.js:44
 msgid "Unlimited documents"
-msgstr "Unbegrenzte Anzahl von Dokumenten"
+msgstr "무제한 문서"
 
 #: payment/static/js/modules/payment/templates.js:50
 msgid "Monthly payments"
-msgstr "Monatliche Zahlungen"
+msgstr "월별 결제"
 
 #: payment/static/js/modules/payment/templates.js:58
 #: payment/static/js/modules/payment/templates.js:78
 #: payment/static/js/modules/payment/templates.js:98
 msgid "Resubscribe"
-msgstr "Erneut abonnieren"
+msgstr "재구독"
 
 #: payment/static/js/modules/payment/templates.js:59
 #: payment/static/js/modules/payment/templates.js:79
 #: payment/static/js/modules/payment/templates.js:99
 msgid "Modify"
-msgstr "Ändern"
+msgstr "수정하다"
 
 #: payment/static/js/modules/payment/templates.js:61
 #: payment/static/js/modules/payment/templates.js:81
 #: payment/static/js/modules/payment/templates.js:101
 msgid "Sign up"
-msgstr "Anmelden"
+msgstr "가입"
 
 #: payment/static/js/modules/payment/templates.js:62
 #: payment/static/js/modules/payment/templates.js:82
 #: payment/static/js/modules/payment/templates.js:102
 msgid "Switch"
-msgstr "Wechseln"
+msgstr "스위치"
 
 #: payment/static/js/modules/payment/templates.js:67
 #: payment/static/js/modules/payment/templates.js:87
 #: payment/static/js/modules/payment/templates.js:107
 msgid "Trial"
-msgstr "Probe"
+msgstr "재판"
 
 #: payment/static/js/modules/payment/templates.js:67
 #: payment/static/js/modules/payment/templates.js:87
 #: payment/static/js/modules/payment/templates.js:107
 msgid "days"
-msgstr "Tage"
+msgstr "날"
 
 #: payment/static/js/modules/payment/templates.js:70
 msgid "Semiannual payments"
-msgstr "Halbjährliche Zahlungen"
+msgstr "반기별 지불"
 
 #: payment/static/js/modules/payment/templates.js:90
 msgid "Annual payments"
-msgstr "Jährliche Zahlungen"
+msgstr "연간 지불금"
 
 #: payment/static/js/modules/payment/templates.js:111
 msgid "Refunds and cancellation"
-msgstr "Rückerstattung und Stornierung"
+msgstr "환불 및 취소"
 
 #: payment/static/js/modules/payment/templates.js:111
 msgid ""
@@ -208,18 +207,16 @@ msgid ""
 "during the trial period, no charge will be made. Thereafter, subscriptions "
 "are charged in advance and no refunds will be made."
 msgstr ""
-"Abonnements können jederzeit gekündigt werden. Wenn eine Stornierung während"
-" des Probezeitraums stattgefunden hat, wird keine Gebühr erhoben. Danach "
-"werden die Abonnements im voraus abgerechnet und es werden keine "
-"Rückerstattungen vorgenommen."
+"구독은 언제든지 취소할 수 있습니다. 체험 기간 중에 취소한 경우에는 요금이 부과되지 않습니다. 그 이후에는 구독 요금이 사전에 청구되며"
+" 환불되지 않습니다."
 
 #: payment/static/js/modules/payment/templates.js:112
 msgid "See"
-msgstr "Lesen Sie bitte auch die"
+msgstr "보다"
 
 #: payment/static/js/modules/payment/templates.js:112
 msgid "Terms and Conditions"
-msgstr "Geschäftsbedingungen"
+msgstr "이용약관"
 
 #: payment/static/js/modules/payment/templates.js:113
 msgid ""
@@ -227,7 +224,5 @@ msgid ""
 " is the Merchant of Record for all our orders. Paddle provides all customer "
 "service inquiries and handles returns."
 msgstr ""
-"Unser Bestellvorgang wird von unserem Online-Händler Paddle.com "
-"durchgeführt. Paddle.com ist der offizielle Verkäufer dem Kunden gegenüber. "
-"Paddle.com beantwortet Kundendienstanfragen und behandelt Anfragen auf "
-"Rückerstattung."
+"우리의 주문 프로세스는 온라인 리셀러 Paddle.com에 의해 수행됩니다. Paddle.com은 모든 주문에 대한 기록된 판매자입니다."
+" Paddle은 모든 고객 서비스 문의를 제공하고 반품을 처리합니다."

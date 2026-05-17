@@ -59,7 +59,7 @@ async def update_subscription(request):
     if not customer:
         return HttpResponseForbidden()
     data = {
-        "plan_id": request.POST["plan_id"],
+        "plan_id": request.JSON["plan_id"],
         "vendor_id": settings.PADDLE_VENDOR_ID,
         "vendor_auth_code": settings.PADDLE_API_KEY,
         "subscription_id": customer.subscription_id,

@@ -1,206 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Fidus Writer payment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 09:57+0000\n"
-"Language: de\n"
+"POT-Creation-Date: 2026-05-14 09:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: payment/static/js/modules/payment/documents_overview.js:20
 msgid "Subscription warning"
-msgstr "Abowarnung"
+msgstr "定期購読の警告"
 
 #: payment/static/js/modules/payment/documents_overview.js:21
 msgid ""
 "You have run out of free documents. Sign up for a subscription to create "
 "more documents."
-msgstr ""
-"Sie haben keine freien Dokumente mehr. Melden Sie sich für ein Abonnement "
-"an, um weitere Dokumente zu erstellen."
+msgstr "無料のドキュメントがなくなりました。さらにドキュメントを作成するには、サブスクリプションにサインアップしてください。"
 
 #: payment/static/js/modules/payment/documents_overview.js:24
 msgid "Go to subscription page"
-msgstr "Gehen Sie zur Abonnementseite"
+msgstr "購読ページに移動"
 
 #: payment/static/js/modules/payment/menu.js:9
 #: payment/static/js/modules/payment/page.js:92
 msgid "Modify subscription"
-msgstr "Abonnement ändern"
+msgstr "サブスクリプションを変更する"
 
 #: payment/static/js/modules/payment/menu.js:11
 msgid "Subscription"
-msgstr "Abonnement"
+msgstr "サブスクリプション"
 
 #: payment/static/js/modules/payment/page.js:46
 msgid "Plan overview"
-msgstr "Zahlungsplanübersicht"
+msgstr "計画概要"
 
 #: payment/static/js/modules/payment/page.js:94
 msgid ""
 "Please choose whether to update payment details or to cancel your "
 "subscription."
-msgstr ""
-"Bitte wählen Sie, ob Sie die Zahlungsdetails aktualisieren oder Ihr "
-"Abonnement kündigen möchten."
+msgstr "支払いの詳細を更新するか、サブスクリプションをキャンセルするかを選択してください。"
 
 #: payment/static/js/modules/payment/page.js:98
 msgid "Update payment details"
-msgstr "Zahlungsdetails aktualisieren"
+msgstr "支払いの詳細を更新する"
 
 #: payment/static/js/modules/payment/page.js:108
 msgid "Cancel subscription"
-msgstr "Abonnement beenden"
+msgstr "サブスクリプションをキャンセルする"
 
 #: payment/static/js/modules/payment/page.js:126
 msgid "Plan change not possible"
-msgstr "Planänderung nicht möglich"
+msgstr "プラン変更不可"
 
 #: payment/static/js/modules/payment/page.js:128
 msgid ""
 "Unfortunately it is not possible to switch plans during the trial period."
-msgstr ""
-"Leider ist es nicht möglich, die Tarife während der Probezeit zu wechseln."
+msgstr "残念ながら、お試し期間中にプランを変更することはできません。"
 
 #: payment/static/js/modules/payment/page.js:136
 msgid "Switch subscription"
-msgstr "Abo wechseln"
+msgstr "サブスクリプションを切り替える"
 
 #: payment/static/js/modules/payment/page.js:138
 msgid "Do you really want to switch your subscription type?"
-msgstr "Möchten Sie Ihren Abonnementtyp wirklich ändern?"
+msgstr "本当にサブスクリプションの種類を切り替えますか?"
 
 #: payment/static/js/modules/payment/page.js:142
 msgid "Yes"
-msgstr "Ja"
+msgstr "はい"
 
 #: payment/static/js/modules/payment/prelogin.js:8
 #: payment/static/js/modules/payment/pricing.js:9
 msgid "Pricing"
-msgstr "Preise"
+msgstr "価格設定"
 
 #: payment/static/js/modules/payment/templates.js:10
 msgid "Pricing Guide"
-msgstr "Preise"
+msgstr "価格ガイド"
 
 #: payment/static/js/modules/payment/templates.js:12
 msgid "You can write 2 documents on the Free Plan without any trial period."
-msgstr ""
-"Sie können 2 Dokumente mit der kostenlosen Version ohne Probezeit  "
-"schreiben."
+msgstr "無料プランでは試用期間なしで2件の文書を作成できます。"
 
 #: payment/static/js/modules/payment/templates.js:14
 msgid "If you want to write more documents, you can upgrade your plan below."
-msgstr ""
-"Wenn Sie weitere Dokumente verfassen möchten, können Sie Ihren Zahlungsplan "
-"weiter unten aktualisieren."
+msgstr "さらに多くのドキュメントを作成したい場合は、以下のプランをアップグレードできます。"
 
 #: payment/static/js/modules/payment/templates.js:18
 msgid "Basic"
-msgstr "Einfach"
+msgstr "基本"
 
 #: payment/static/js/modules/payment/templates.js:19
 msgid "Free Plan"
-msgstr "Kostenlos"
+msgstr "無料プラン"
 
 #: payment/static/js/modules/payment/templates.js:21
 msgid "2 free documents"
-msgstr "2 Dokumente"
+msgstr "無料のドキュメント 2 冊"
 
 #: payment/static/js/modules/payment/templates.js:22
 #: payment/static/js/modules/payment/templates.js:45
 msgid "Unlimited collaborators"
-msgstr "Unbegrenzte Anzahl von Kontakten"
+msgstr "無制限のコラボレーター"
 
 #: payment/static/js/modules/payment/templates.js:23
 #: payment/static/js/modules/payment/templates.js:46
 msgid "Unlimited bibliography items"
-msgstr "Unbegrenzte Anzahl von Literaturangaben"
+msgstr "無制限の参考文献項目"
 
 #: payment/static/js/modules/payment/templates.js:24
 #: payment/static/js/modules/payment/templates.js:47
 msgid "Unlimited exports"
-msgstr "Unbegrenzte Exporte"
+msgstr "無制限の輸出"
 
 #: payment/static/js/modules/payment/templates.js:30
 #: payment/static/js/modules/payment/templates.js:34
 msgid "Default"
-msgstr "Standard"
+msgstr "デフォルト"
 
 #: payment/static/js/modules/payment/templates.js:33
 msgid "Downgrade on "
-msgstr "Downgrade am "
+msgstr "ダウングレードオン "
 
 #: payment/static/js/modules/payment/templates.js:35
 msgid "Current"
-msgstr "Aktuell"
+msgstr "現在"
 
 #: payment/static/js/modules/payment/templates.js:41
 msgid "Premium"
-msgstr "Premium"
+msgstr "プレミアム"
 
 #: payment/static/js/modules/payment/templates.js:42
 msgid "Paid Plan"
-msgstr "Bezahlt"
+msgstr "有料プラン"
 
 #: payment/static/js/modules/payment/templates.js:44
 msgid "Unlimited documents"
-msgstr "Unbegrenzte Anzahl von Dokumenten"
+msgstr "無制限のドキュメント"
 
 #: payment/static/js/modules/payment/templates.js:50
 msgid "Monthly payments"
-msgstr "Monatliche Zahlungen"
+msgstr "月々のお支払い"
 
 #: payment/static/js/modules/payment/templates.js:58
 #: payment/static/js/modules/payment/templates.js:78
 #: payment/static/js/modules/payment/templates.js:98
 msgid "Resubscribe"
-msgstr "Erneut abonnieren"
+msgstr "再購読"
 
 #: payment/static/js/modules/payment/templates.js:59
 #: payment/static/js/modules/payment/templates.js:79
 #: payment/static/js/modules/payment/templates.js:99
 msgid "Modify"
-msgstr "Ändern"
+msgstr "修正する"
 
 #: payment/static/js/modules/payment/templates.js:61
 #: payment/static/js/modules/payment/templates.js:81
 #: payment/static/js/modules/payment/templates.js:101
 msgid "Sign up"
-msgstr "Anmelden"
+msgstr "サインアップ"
 
 #: payment/static/js/modules/payment/templates.js:62
 #: payment/static/js/modules/payment/templates.js:82
 #: payment/static/js/modules/payment/templates.js:102
 msgid "Switch"
-msgstr "Wechseln"
+msgstr "スイッチ"
 
 #: payment/static/js/modules/payment/templates.js:67
 #: payment/static/js/modules/payment/templates.js:87
 #: payment/static/js/modules/payment/templates.js:107
 msgid "Trial"
-msgstr "Probe"
+msgstr "トライアル"
 
 #: payment/static/js/modules/payment/templates.js:67
 #: payment/static/js/modules/payment/templates.js:87
 #: payment/static/js/modules/payment/templates.js:107
 msgid "days"
-msgstr "Tage"
+msgstr "日"
 
 #: payment/static/js/modules/payment/templates.js:70
 msgid "Semiannual payments"
-msgstr "Halbjährliche Zahlungen"
+msgstr "半年ごとの支払い"
 
 #: payment/static/js/modules/payment/templates.js:90
 msgid "Annual payments"
-msgstr "Jährliche Zahlungen"
+msgstr "年間支払い"
 
 #: payment/static/js/modules/payment/templates.js:111
 msgid "Refunds and cancellation"
-msgstr "Rückerstattung und Stornierung"
+msgstr "返金とキャンセル"
 
 #: payment/static/js/modules/payment/templates.js:111
 msgid ""
@@ -208,18 +207,15 @@ msgid ""
 "during the trial period, no charge will be made. Thereafter, subscriptions "
 "are charged in advance and no refunds will be made."
 msgstr ""
-"Abonnements können jederzeit gekündigt werden. Wenn eine Stornierung während"
-" des Probezeitraums stattgefunden hat, wird keine Gebühr erhoben. Danach "
-"werden die Abonnements im voraus abgerechnet und es werden keine "
-"Rückerstattungen vorgenommen."
+"サブスクリプションはいつでもキャンセルできます。お試し期間中に解約した場合は料金はかかりません。それ以降、サブスクリプションは前払いされ、返金は行われません。"
 
 #: payment/static/js/modules/payment/templates.js:112
 msgid "See"
-msgstr "Lesen Sie bitte auch die"
+msgstr "見る"
 
 #: payment/static/js/modules/payment/templates.js:112
 msgid "Terms and Conditions"
-msgstr "Geschäftsbedingungen"
+msgstr "利用規約"
 
 #: payment/static/js/modules/payment/templates.js:113
 msgid ""
@@ -227,7 +223,5 @@ msgid ""
 " is the Merchant of Record for all our orders. Paddle provides all customer "
 "service inquiries and handles returns."
 msgstr ""
-"Unser Bestellvorgang wird von unserem Online-Händler Paddle.com "
-"durchgeführt. Paddle.com ist der offizielle Verkäufer dem Kunden gegenüber. "
-"Paddle.com beantwortet Kundendienstanfragen und behandelt Anfragen auf "
-"Rückerstattung."
+"当社の注文プロセスは、オンライン再販業者 Paddle.com によって行われます。 Paddle.com はすべての注文の販売者です。 Paddle "
+"はすべてのカスタマー サービスに関する問い合わせを提供し、返品にも対応します。"

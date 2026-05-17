@@ -1,225 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Fidus Writer payment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 09:57+0000\n"
-"Language: de\n"
+"POT-Creation-Date: 2026-05-14 09:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: payment/static/js/modules/payment/documents_overview.js:20
 msgid "Subscription warning"
-msgstr "Abowarnung"
+msgstr "订阅警告"
 
 #: payment/static/js/modules/payment/documents_overview.js:21
 msgid ""
 "You have run out of free documents. Sign up for a subscription to create "
 "more documents."
-msgstr ""
-"Sie haben keine freien Dokumente mehr. Melden Sie sich für ein Abonnement "
-"an, um weitere Dokumente zu erstellen."
+msgstr "您的免费文档已用完。注册订阅以创建更多文档。"
 
 #: payment/static/js/modules/payment/documents_overview.js:24
 msgid "Go to subscription page"
-msgstr "Gehen Sie zur Abonnementseite"
+msgstr "前往订阅页面"
 
 #: payment/static/js/modules/payment/menu.js:9
 #: payment/static/js/modules/payment/page.js:92
 msgid "Modify subscription"
-msgstr "Abonnement ändern"
+msgstr "修改订阅"
 
 #: payment/static/js/modules/payment/menu.js:11
 msgid "Subscription"
-msgstr "Abonnement"
+msgstr "订阅"
 
 #: payment/static/js/modules/payment/page.js:46
 msgid "Plan overview"
-msgstr "Zahlungsplanübersicht"
+msgstr "计划概览"
 
 #: payment/static/js/modules/payment/page.js:94
 msgid ""
 "Please choose whether to update payment details or to cancel your "
 "subscription."
-msgstr ""
-"Bitte wählen Sie, ob Sie die Zahlungsdetails aktualisieren oder Ihr "
-"Abonnement kündigen möchten."
+msgstr "请选择是更新付款详细信息还是取消订阅。"
 
 #: payment/static/js/modules/payment/page.js:98
 msgid "Update payment details"
-msgstr "Zahlungsdetails aktualisieren"
+msgstr "更新付款详情"
 
 #: payment/static/js/modules/payment/page.js:108
 msgid "Cancel subscription"
-msgstr "Abonnement beenden"
+msgstr "取消订阅"
 
 #: payment/static/js/modules/payment/page.js:126
 msgid "Plan change not possible"
-msgstr "Planänderung nicht möglich"
+msgstr "计划变更不可能"
 
 #: payment/static/js/modules/payment/page.js:128
 msgid ""
 "Unfortunately it is not possible to switch plans during the trial period."
-msgstr ""
-"Leider ist es nicht möglich, die Tarife während der Probezeit zu wechseln."
+msgstr "遗憾的是，在试用期间无法更改计划。"
 
 #: payment/static/js/modules/payment/page.js:136
 msgid "Switch subscription"
-msgstr "Abo wechseln"
+msgstr "切换订阅"
 
 #: payment/static/js/modules/payment/page.js:138
 msgid "Do you really want to switch your subscription type?"
-msgstr "Möchten Sie Ihren Abonnementtyp wirklich ändern?"
+msgstr "您真的想切换订阅类型吗？"
 
 #: payment/static/js/modules/payment/page.js:142
 msgid "Yes"
-msgstr "Ja"
+msgstr "是的"
 
 #: payment/static/js/modules/payment/prelogin.js:8
 #: payment/static/js/modules/payment/pricing.js:9
 msgid "Pricing"
-msgstr "Preise"
+msgstr "定价"
 
 #: payment/static/js/modules/payment/templates.js:10
 msgid "Pricing Guide"
-msgstr "Preise"
+msgstr "定价指南"
 
 #: payment/static/js/modules/payment/templates.js:12
 msgid "You can write 2 documents on the Free Plan without any trial period."
-msgstr ""
-"Sie können 2 Dokumente mit der kostenlosen Version ohne Probezeit  "
-"schreiben."
+msgstr "您可以在免费计划上编写 2 个文档，无需任何试用期。"
 
 #: payment/static/js/modules/payment/templates.js:14
 msgid "If you want to write more documents, you can upgrade your plan below."
-msgstr ""
-"Wenn Sie weitere Dokumente verfassen möchten, können Sie Ihren Zahlungsplan "
-"weiter unten aktualisieren."
+msgstr "如果你想写更多的文档，你可以在下面升级你的计划。"
 
 #: payment/static/js/modules/payment/templates.js:18
 msgid "Basic"
-msgstr "Einfach"
+msgstr "基本的"
 
 #: payment/static/js/modules/payment/templates.js:19
 msgid "Free Plan"
-msgstr "Kostenlos"
+msgstr "免费计划"
 
 #: payment/static/js/modules/payment/templates.js:21
 msgid "2 free documents"
-msgstr "2 Dokumente"
+msgstr "2份免费文件"
 
 #: payment/static/js/modules/payment/templates.js:22
 #: payment/static/js/modules/payment/templates.js:45
 msgid "Unlimited collaborators"
-msgstr "Unbegrenzte Anzahl von Kontakten"
+msgstr "无限合作者"
 
 #: payment/static/js/modules/payment/templates.js:23
 #: payment/static/js/modules/payment/templates.js:46
 msgid "Unlimited bibliography items"
-msgstr "Unbegrenzte Anzahl von Literaturangaben"
+msgstr "无限参考书目项目"
 
 #: payment/static/js/modules/payment/templates.js:24
 #: payment/static/js/modules/payment/templates.js:47
 msgid "Unlimited exports"
-msgstr "Unbegrenzte Exporte"
+msgstr "无限出口"
 
 #: payment/static/js/modules/payment/templates.js:30
 #: payment/static/js/modules/payment/templates.js:34
 msgid "Default"
-msgstr "Standard"
+msgstr "默认"
 
 #: payment/static/js/modules/payment/templates.js:33
 msgid "Downgrade on "
-msgstr "Downgrade am "
+msgstr "降级日期 "
 
 #: payment/static/js/modules/payment/templates.js:35
 msgid "Current"
-msgstr "Aktuell"
+msgstr "当前的"
 
 #: payment/static/js/modules/payment/templates.js:41
 msgid "Premium"
-msgstr "Premium"
+msgstr "优质的"
 
 #: payment/static/js/modules/payment/templates.js:42
 msgid "Paid Plan"
-msgstr "Bezahlt"
+msgstr "付费计划"
 
 #: payment/static/js/modules/payment/templates.js:44
 msgid "Unlimited documents"
-msgstr "Unbegrenzte Anzahl von Dokumenten"
+msgstr "无限文件"
 
 #: payment/static/js/modules/payment/templates.js:50
 msgid "Monthly payments"
-msgstr "Monatliche Zahlungen"
+msgstr "每月付款"
 
 #: payment/static/js/modules/payment/templates.js:58
 #: payment/static/js/modules/payment/templates.js:78
 #: payment/static/js/modules/payment/templates.js:98
 msgid "Resubscribe"
-msgstr "Erneut abonnieren"
+msgstr "重新订阅"
 
 #: payment/static/js/modules/payment/templates.js:59
 #: payment/static/js/modules/payment/templates.js:79
 #: payment/static/js/modules/payment/templates.js:99
 msgid "Modify"
-msgstr "Ändern"
+msgstr "调整"
 
 #: payment/static/js/modules/payment/templates.js:61
 #: payment/static/js/modules/payment/templates.js:81
 #: payment/static/js/modules/payment/templates.js:101
 msgid "Sign up"
-msgstr "Anmelden"
+msgstr "报名"
 
 #: payment/static/js/modules/payment/templates.js:62
 #: payment/static/js/modules/payment/templates.js:82
 #: payment/static/js/modules/payment/templates.js:102
 msgid "Switch"
-msgstr "Wechseln"
+msgstr "转变"
 
 #: payment/static/js/modules/payment/templates.js:67
 #: payment/static/js/modules/payment/templates.js:87
 #: payment/static/js/modules/payment/templates.js:107
 msgid "Trial"
-msgstr "Probe"
+msgstr "审判"
 
 #: payment/static/js/modules/payment/templates.js:67
 #: payment/static/js/modules/payment/templates.js:87
 #: payment/static/js/modules/payment/templates.js:107
 msgid "days"
-msgstr "Tage"
+msgstr "天"
 
 #: payment/static/js/modules/payment/templates.js:70
 msgid "Semiannual payments"
-msgstr "Halbjährliche Zahlungen"
+msgstr "每半年付款一次"
 
 #: payment/static/js/modules/payment/templates.js:90
 msgid "Annual payments"
-msgstr "Jährliche Zahlungen"
+msgstr "每年付款"
 
 #: payment/static/js/modules/payment/templates.js:111
 msgid "Refunds and cancellation"
-msgstr "Rückerstattung und Stornierung"
+msgstr "退款和取消"
 
 #: payment/static/js/modules/payment/templates.js:111
 msgid ""
 "Subscriptions can be cancelled at any time. If a cancellation took place "
 "during the trial period, no charge will be made. Thereafter, subscriptions "
 "are charged in advance and no refunds will be made."
-msgstr ""
-"Abonnements können jederzeit gekündigt werden. Wenn eine Stornierung während"
-" des Probezeitraums stattgefunden hat, wird keine Gebühr erhoben. Danach "
-"werden die Abonnements im voraus abgerechnet und es werden keine "
-"Rückerstattungen vorgenommen."
+msgstr "订阅可以随时取消。如果在试用期内取消，将不收取任何费用。此后，订阅需提前付费，且不会退款。"
 
 #: payment/static/js/modules/payment/templates.js:112
 msgid "See"
-msgstr "Lesen Sie bitte auch die"
+msgstr "看"
 
 #: payment/static/js/modules/payment/templates.js:112
 msgid "Terms and Conditions"
-msgstr "Geschäftsbedingungen"
+msgstr "条款和条件"
 
 #: payment/static/js/modules/payment/templates.js:113
 msgid ""
@@ -227,7 +222,5 @@ msgid ""
 " is the Merchant of Record for all our orders. Paddle provides all customer "
 "service inquiries and handles returns."
 msgstr ""
-"Unser Bestellvorgang wird von unserem Online-Händler Paddle.com "
-"durchgeführt. Paddle.com ist der offizielle Verkäufer dem Kunden gegenüber. "
-"Paddle.com beantwortet Kundendienstanfragen und behandelt Anfragen auf "
-"Rückerstattung."
+"我们的订单流程由我们的在线经销商 Paddle.com 执行。 Paddle.com 是我们所有订单的记录商户。 Paddle "
+"提供所有客户服务查询并处理退货。"

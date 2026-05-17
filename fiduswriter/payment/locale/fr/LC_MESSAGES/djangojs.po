@@ -1,188 +1,232 @@
+#
 msgid ""
 msgstr ""
+"Project-Id-Version: Fidus Writer payment\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-14 09:57+0000\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: Fidus Writer payment\n"
-"Language: fr\n"
 
-#: payment/static/js/modules/payment/documents_overview.js:14
+#: payment/static/js/modules/payment/documents_overview.js:20
 msgid "Subscription warning"
 msgstr "Avertissement d'abonnement"
 
-#: payment/static/js/modules/payment/documents_overview.js:15
-msgid "You have run out of free documents. Sign up for a subscription to create more documents."
-msgstr "Vous n'avez plus droit à un document gratuit. Inscrivez-vous à un abonnement pour créer plus de documents."
+#: payment/static/js/modules/payment/documents_overview.js:21
+msgid ""
+"You have run out of free documents. Sign up for a subscription to create "
+"more documents."
+msgstr ""
+"Vous n'avez plus droit à un document gratuit. Inscrivez-vous à un abonnement"
+" pour créer plus de documents."
 
-#: payment/static/js/modules/payment/documents_overview.js:17
+#: payment/static/js/modules/payment/documents_overview.js:24
 msgid "Go to subscription page"
 msgstr "Accéder à la page d'abonnement"
+
+#: payment/static/js/modules/payment/menu.js:9
+#: payment/static/js/modules/payment/page.js:92
+msgid "Modify subscription"
+msgstr "Modifier l'abonnement"
 
 #: payment/static/js/modules/payment/menu.js:11
 msgid "Subscription"
 msgstr "Abonnement"
 
-#. Plan == Forfait
-#: payment/static/js/modules/payment/page.js:33
+#: payment/static/js/modules/payment/page.js:46
 msgid "Plan overview"
 msgstr "Aperçu du forfait"
 
-#: payment/static/js/modules/payment/menu.js:9
-#: payment/static/js/modules/payment/page.js:53
-msgid "Modify subscription"
-msgstr "Modifier l'abonnement"
+#: payment/static/js/modules/payment/page.js:94
+msgid ""
+"Please choose whether to update payment details or to cancel your "
+"subscription."
+msgstr ""
+"Veuillez choisir entre mettre à jour les détails du paiement ou annuler "
+"votre abonnement."
 
-#: payment/static/js/modules/payment/page.js:54
-msgid "Please choose whether to update payment details or to cancel your subscription."
-msgstr "Veuillez choisir entre mettre à jour les détails du paiement ou annuler votre abonnement."
-
-#: payment/static/js/modules/payment/page.js:56
+#: payment/static/js/modules/payment/page.js:98
 msgid "Update payment details"
 msgstr "Mettre à jour les détails du paiement"
 
-#: payment/static/js/modules/payment/page.js:63
+#: payment/static/js/modules/payment/page.js:108
 msgid "Cancel subscription"
 msgstr "Annuler l'abonnement"
 
-#: payment/static/js/modules/payment/page.js:76
+#: payment/static/js/modules/payment/page.js:126
 msgid "Plan change not possible"
 msgstr "Changement de forfait impossible"
 
-#: payment/static/js/modules/payment/page.js:77
-msgid "Unfortunately it is not possible to switch plans during the trial period."
-msgstr "Malheureusement, il n'est pas possible de changer de forfait pendant la période d'essai."
+#: payment/static/js/modules/payment/page.js:128
+msgid ""
+"Unfortunately it is not possible to switch plans during the trial period."
+msgstr ""
+"Malheureusement, il n'est pas possible de changer de forfait pendant la "
+"période d'essai."
 
-#: payment/static/js/modules/payment/page.js:86
+#: payment/static/js/modules/payment/page.js:136
 msgid "Switch subscription"
 msgstr "Changer d'abonnement"
 
-#: payment/static/js/modules/payment/page.js:87
+#: payment/static/js/modules/payment/page.js:138
 msgid "Do you really want to switch your subscription type?"
 msgstr "Voulez-vous vraiment changer de type d'abonnement?"
 
-#: payment/static/js/modules/payment/page.js:89
+#: payment/static/js/modules/payment/page.js:142
 msgid "Yes"
 msgstr "Oui"
 
-#: payment/static/js/modules/payment/prelogin.js:10
-#: payment/static/js/modules/payment/pricing.js:7
+#: payment/static/js/modules/payment/prelogin.js:8
+#: payment/static/js/modules/payment/pricing.js:9
 msgid "Pricing"
 msgstr "Tarification"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:10
 msgid "Pricing Guide"
 msgstr "Guide de prix"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:12
 msgid "You can write 2 documents on the Free Plan without any trial period."
-msgstr "Vous pouvez écrire 2 documents sur le forfait gratuit sans période d'essai."
+msgstr ""
+"Vous pouvez écrire 2 documents sur le forfait gratuit sans période d'essai."
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:14
 msgid "If you want to write more documents, you can upgrade your plan below."
-msgstr "Si vous souhaitez écrire plus de documents, vous pouvez mettre à jour votre forfait ci-dessous."
+msgstr ""
+"Si vous souhaitez écrire plus de documents, vous pouvez mettre à jour votre "
+"forfait ci-dessous."
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:18
 msgid "Basic"
 msgstr "De base"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:19
 msgid "Free Plan"
 msgstr "Forfait gratuit"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:21
 msgid "2 free documents"
 msgstr "2 documents gratuits"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:22
+#: payment/static/js/modules/payment/templates.js:45
 msgid "Unlimited collaborators"
 msgstr "Collaborateurs illimités"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:23
+#: payment/static/js/modules/payment/templates.js:46
 msgid "Unlimited bibliography items"
 msgstr "Articles de bibliographie illimités"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:24
+#: payment/static/js/modules/payment/templates.js:47
 msgid "Unlimited exports"
 msgstr "Exportations illimitées"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:30
+#: payment/static/js/modules/payment/templates.js:34
 msgid "Default"
 msgstr "Défaut"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:33
 msgid "Downgrade on "
 msgstr "Rétrograder sur "
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:35
 msgid "Current"
 msgstr "Courant"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:41
 msgid "Premium"
 msgstr "Premium"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:42
 msgid "Paid Plan"
 msgstr "Forfait payant"
 
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Monthly payments"
-msgstr "Mensualités"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Resubscribe"
-msgstr "Se réinscrire"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Modify"
-msgstr "Modifier"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Sign up"
-msgstr "S'inscrire"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Trial"
-msgstr "Essai"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "days"
-msgstr "jours"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Semiannual payments"
-msgstr "Paiements semestriels"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Annual payments"
-msgstr "Paiements annuels"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Refunds and cancellation"
-msgstr "Remboursements et annulation"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Subscriptions can be cancelled at any time. If a cancellation took place during the trial period, no charge will be made. Thereafter, subscriptions are charged in advance and no refunds will be made."
-msgstr "Les abonnements peuvent être annulés à tout moment. Si une annulation a eu lieu pendant la période d'essai, aucuns frais ne seront facturés. Par la suite, les abonnements seront facturés à l'avance et aucun remboursement ne sera effectué."
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "See"
-msgstr "Voir"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Terms and Conditions"
-msgstr "Termes et conditions"
-
-#: payment/static/js/modules/payment/templates.js:8
-msgid "Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns."
-msgstr "Notre processus de commande est mené par notre revendeur en ligne Paddle.com. Paddle.com est le marchand officiel de toutes nos commandes. Paddle répond à toutes les demandes de service client et gère les retours."
-
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:44
 msgid "Unlimited documents"
 msgstr "Documents illimités"
 
-#: payment/static/js/modules/payment/templates.js:8
+#: payment/static/js/modules/payment/templates.js:50
+msgid "Monthly payments"
+msgstr "Mensualités"
+
+#: payment/static/js/modules/payment/templates.js:58
+#: payment/static/js/modules/payment/templates.js:78
+#: payment/static/js/modules/payment/templates.js:98
+msgid "Resubscribe"
+msgstr "Se réinscrire"
+
+#: payment/static/js/modules/payment/templates.js:59
+#: payment/static/js/modules/payment/templates.js:79
+#: payment/static/js/modules/payment/templates.js:99
+msgid "Modify"
+msgstr "Modifier"
+
+#: payment/static/js/modules/payment/templates.js:61
+#: payment/static/js/modules/payment/templates.js:81
+#: payment/static/js/modules/payment/templates.js:101
+msgid "Sign up"
+msgstr "S'inscrire"
+
+#: payment/static/js/modules/payment/templates.js:62
+#: payment/static/js/modules/payment/templates.js:82
+#: payment/static/js/modules/payment/templates.js:102
 msgid "Switch"
 msgstr "Commutateur"
 
+#: payment/static/js/modules/payment/templates.js:67
+#: payment/static/js/modules/payment/templates.js:87
+#: payment/static/js/modules/payment/templates.js:107
+msgid "Trial"
+msgstr "Essai"
+
+#: payment/static/js/modules/payment/templates.js:67
+#: payment/static/js/modules/payment/templates.js:87
+#: payment/static/js/modules/payment/templates.js:107
+msgid "days"
+msgstr "jours"
+
+#: payment/static/js/modules/payment/templates.js:70
+msgid "Semiannual payments"
+msgstr "Paiements semestriels"
+
+#: payment/static/js/modules/payment/templates.js:90
+msgid "Annual payments"
+msgstr "Paiements annuels"
+
+#: payment/static/js/modules/payment/templates.js:111
+msgid "Refunds and cancellation"
+msgstr "Remboursements et annulation"
+
+#: payment/static/js/modules/payment/templates.js:111
+msgid ""
+"Subscriptions can be cancelled at any time. If a cancellation took place "
+"during the trial period, no charge will be made. Thereafter, subscriptions "
+"are charged in advance and no refunds will be made."
+msgstr ""
+"Les abonnements peuvent être annulés à tout moment. Si une annulation a eu "
+"lieu pendant la période d'essai, aucuns frais ne seront facturés. Par la "
+"suite, les abonnements seront facturés à l'avance et aucun remboursement ne "
+"sera effectué."
+
+#: payment/static/js/modules/payment/templates.js:112
+msgid "See"
+msgstr "Voir"
+
+#: payment/static/js/modules/payment/templates.js:112
+msgid "Terms and Conditions"
+msgstr "Termes et conditions"
+
+#: payment/static/js/modules/payment/templates.js:113
+msgid ""
+"Our order process is conducted by our online reseller Paddle.com. Paddle.com"
+" is the Merchant of Record for all our orders. Paddle provides all customer "
+"service inquiries and handles returns."
+msgstr ""
+"Notre processus de commande est mené par notre revendeur en ligne "
+"Paddle.com. Paddle.com est le marchand officiel de toutes nos commandes. "
+"Paddle répond à toutes les demandes de service client et gère les retours."
