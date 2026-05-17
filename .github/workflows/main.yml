@@ -28,3 +28,59 @@ jobs:
             else pip install https://github.com/fiduswriter/fiduswriter/archive/main.zip;
           fi
       - uses: pre-commit/action@v3.0.1
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
+    - name: Set up Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22
+    - uses: actions/checkout@v4
+    - uses: nanasess/setup-chromedriver@master
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install libjpeg-dev python3-dev python3-pip gettext zlib1g-dev git nodejs build-essential
+        pip install -r requirements.txt
+        if grep version pyproject.toml | grep -q "dev";
+          then pip install https://github.com/fiduswriter/fiduswriter/archive/develop.zip;
+          else pip install https://github.com/fiduswriter/fiduswriter/archive/main.zip;
+        fi
+        cd fiduswriter
+        mv ../ci/configuration.py ./
+        mv ../ci/.coveragerc ./
+        pip install requests[security]
+        pip install coverage
+        pip install coveralls
+        pip install packaging
+        pip install webdriver-manager
+        pip install selenium
+        pip install wheel
+        pip install pip --upgrade
+        coverage run $(which fiduswriter) setup --no-static
+    - name: Run test payment
+      uses: nick-invision/retry@v3
+      with:
+        timeout_minutes: 8
+        max_attempts: 3
+        retry_on: error
+        command: |
+          cd fiduswriter
+          coverage run $(which fiduswriter) test payment
+    - name: Upload failed test screenshots
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: failure-artifacts
+        path: ${{ github.workspace }}/fiduswriter/screenshots/
+    - name: Coveralls
+      run: |
+          cd fiduswriter
+          coverage combine
+          coveralls --service=github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

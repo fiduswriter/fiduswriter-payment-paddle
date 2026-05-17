@@ -22,6 +22,10 @@ export class PaymentApp {
                 return Promise.resolve()
             }
             return new Promise(resolve => {
+                if (window.Paddle) {
+                    resolve()
+                    return
+                }
                 const paddleScript = document.createElement("script")
                 paddleScript.onload = () => {
                     resolve()

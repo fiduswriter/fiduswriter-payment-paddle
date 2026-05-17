@@ -8,6 +8,8 @@ from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
+from asgiref.sync import sync_to_async
+
 from base.decorators import ajax_required
 from .models import Customer
 from .validate import validate_webhook_request
@@ -55,7 +57,9 @@ def get_subscription_details(request):
 @login_required
 @require_POST
 async def update_subscription(request):
-    customer = Customer.objects.filter(user=request.user).first()
+    customer = await sync_to_async(
+        Customer.objects.filter(user=request.user).first
+    )()
     if not customer:
         return HttpResponseForbidden()
     data = {
@@ -65,13 +69,19 @@ async def update_subscription(request):
         "subscription_id": customer.subscription_id,
     }
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
-    if hasattr(settings, "PADDLE_SANDBOX") and settings.PADDLE_SANDBOX is True:
-        domain = "sandbox-vendors.paddle.com"
-    else:
-        domain = "vendors.paddle.com"
+    paddle_api_url = getattr(settings, "PADDLE_API_URL", None)
+    if not paddle_api_url:
+        if (
+            hasattr(settings, "PADDLE_SANDBOX")
+            and settings.PADDLE_SANDBOX is True
+        ):
+            domain = "sandbox-vendors.paddle.com"
+        else:
+            domain = "vendors.paddle.com"
+        paddle_api_url = f"https://{domain}/api/2.0/subscription/users/update"
     async with AsyncClient(timeout=40) as client:
         response = await client.post(
-            f"https://{domain}/api/2.0/subscription/users/update",
+            paddle_api_url,
             headers=headers,
             data=data,
         )
