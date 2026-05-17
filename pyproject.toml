@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fiduswriter-payment-paddle"
 description = "A Fidus Writer plugin to connect with Paddle.com as payment system"
-version = "4.1.0"
+version = "4.1.1"
 readme = "README.md"
 license = "AGPL-3.0-or-later"
 authors = [
