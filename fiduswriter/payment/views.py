@@ -8,8 +8,6 @@ from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-from asgiref.sync import sync_to_async
-
 from base.decorators import ajax_required
 from .models import Customer
 from .validate import validate_webhook_request
@@ -57,9 +55,8 @@ def get_subscription_details(request):
 @login_required
 @require_POST
 async def update_subscription(request):
-    customer = await sync_to_async(
-        Customer.objects.filter(user=request.user).first
-    )()
+    user = await request.auser()
+    customer = await Customer.objects.filter(user=user).afirst()
     if not customer:
         return HttpResponseForbidden()
     data = {

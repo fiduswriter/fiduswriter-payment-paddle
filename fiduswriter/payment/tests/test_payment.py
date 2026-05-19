@@ -22,14 +22,10 @@ class MockPaddleHandler(BaseHTTPRequestHandler):
         pass
 
     def do_POST(self):
-        with open("/tmp/payment_debug.log", "a") as f:
-            f.write(f"mock server received POST {self.path}\n")
         if self.path == "/api/2.0/subscription/users/update":
             content_length = int(self.headers.get("Content-Length", 0))
             body = self.rfile.read(content_length).decode("utf-8")
             self.server.shared_state["last_request_body"] = body
-            with open("/tmp/payment_debug.log", "a") as f:
-                f.write(f"mock server body: {body}\n")
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
@@ -267,9 +263,32 @@ class PaymentDummyTest(SeleniumHelper, ChannelsLiveServerTestCase):
         self.driver.find_element(
             By.XPATH, '//*[normalize-space()="Yes"]'
         ).click()
-        time.sleep(5)
+        time.sleep(2)
 
         # Verify the mock server received the update request
         last_body = self.shared_state.get("last_request_body")
         self.assertIsNotNone(last_body)
         self.assertIn("plan_id=33333", last_body)
+
+        # Simulate Paddle updating the subscription via webhook
+        customer = models.Customer.objects.filter(user=self.user).first()
+        customer.subscription_type = "annual"
+        customer.subscription_plan_id = "33333"
+        customer.save()
+
+        # Wait for the page to re-render with the updated subscription
+        WebDriverWait(self.driver, self.wait_time).until(
+            EC.text_to_be_present_in_element(
+                (By.CSS_SELECTOR, ".subscription.annual"), "MODIFY"
+            )
+        )
+
+        monthly_btn = self.driver.find_element(
+            By.CSS_SELECTOR, ".subscription.monthly"
+        )
+        annual_btn = self.driver.find_element(
+            By.CSS_SELECTOR, ".subscription.annual"
+        )
+        self.assertIn("SWITCH", monthly_btn.text)
+        self.assertIn("MODIFY", annual_btn.text)
+        self.assertIn("current", annual_btn.get_attribute("class"))
