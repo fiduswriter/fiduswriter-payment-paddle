@@ -1,13 +1,13 @@
 import {
     Dialog,
     activateWait,
-    baseBodyTemplate,
     deactivateWait,
     ensureCSS,
     post,
     setDocTitle,
     whenReady
 } from "fwtoolkit"
+import {baseBodyTemplate} from "../common/index.js"
 import {FeedbackTab} from "../feedback"
 import {SiteMenu} from "../menu"
 import {advertisementTemplate} from "./templates"
