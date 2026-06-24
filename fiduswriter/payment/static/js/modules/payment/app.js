@@ -1,4 +1,4 @@
-import {postJson} from "../common"
+import {postJson} from "fwtoolkit"
 
 import {PaymentPage} from "./page"
 import {PricingPage} from "./pricing"

@@ -1,4 +1,4 @@
-import {Dialog} from "../common"
+import {Dialog} from "fwtoolkit"
 
 export class PaymentDocumentsOverview {
     constructor(overview) {

@@ -1,4 +1,4 @@
-import {ensureCSS} from "../common"
+import {ensureCSS} from "fwtoolkit"
 import {advertisementTemplate} from "./templates"
 
 import {PreloginPage} from "../prelogin"
