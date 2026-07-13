@@ -1,3 +1,6 @@
+import {baseBodyTemplate} from "@fiduswriter/common/common"
+import {FeedbackTab} from "@fiduswriter/common/feedback"
+import {SiteMenu} from "@fiduswriter/common/menu"
 import {
     Dialog,
     activateWait,
@@ -7,9 +10,6 @@ import {
     setDocTitle,
     whenReady
 } from "fwtoolkit"
-import {baseBodyTemplate} from "../common/index.js"
-import {FeedbackTab} from "../feedback"
-import {SiteMenu} from "../menu"
 import {advertisementTemplate} from "./templates"
 
 export class PaymentPage {
