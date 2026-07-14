@@ -180,7 +180,7 @@ class PaymentDummyTest(SeleniumHelper, ChannelsLiveServerTestCase):
 
         # Check that subscription warning dialog appears
         dialog_title = self.driver.find_element(
-            By.CSS_SELECTOR, ".ui-dialog-title"
+            By.CSS_SELECTOR, ".fw-dialog-title"
         ).text
         self.assertEqual(dialog_title, "Subscription warning")
 
@@ -255,7 +255,7 @@ class PaymentDummyTest(SeleniumHelper, ChannelsLiveServerTestCase):
 
         # Dialog should ask to switch
         dialog_title = self.driver.find_element(
-            By.CSS_SELECTOR, ".ui-dialog-title"
+            By.CSS_SELECTOR, ".fw-dialog-title"
         ).text
         self.assertEqual(dialog_title, "Switch subscription")
 
