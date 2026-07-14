@@ -1,5 +1,6 @@
 {
     dependencies: {
-        "@fiduswriter/common": "^0.1.5"
+        "@fiduswriter/common": "^0.1.5",
+        "fwtoolkit": "^0.1.9"
     }
 }
