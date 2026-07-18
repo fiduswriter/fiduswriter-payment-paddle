@@ -1,6 +1,6 @@
-import {baseBodyTemplate} from "@fiduswriter/common/common"
-import {FeedbackTab} from "@fiduswriter/common/feedback"
-import {SiteMenu} from "@fiduswriter/common/menu"
+import {baseBodyTemplate} from "@fiduswriter/frontend/common"
+import {FeedbackTab} from "@fiduswriter/frontend/feedback"
+import {SiteMenu} from "@fiduswriter/frontend/menu"
 import {
     Dialog,
     activateWait,
