@@ -1,7 +1,7 @@
 import {ensureCSS} from "fwtoolkit"
 import {advertisementTemplate} from "./templates"
 
-import {PreloginPage} from "../prelogin"
+import {PreloginPage} from "@fiduswriter/frontend"
 
 export class PricingPage extends PreloginPage {
     constructor(config) {
