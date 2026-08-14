@@ -37,13 +37,21 @@ export class PaymentDocumentsOverview {
     init() {
         this.overview.goToNewDocumentAction = this.overview.goToNewDocument
         this.overview.goToNewDocument = (...args) => {
-            this.overview.app.getSubscription().then(() => {
-                if (this.canCreateDocument()) {
+            this.overview.app
+                .getSubscription()
+                .then(() => {
+                    if (this.canCreateDocument()) {
+                        this.overview.goToNewDocumentAction(...args)
+                    } else {
+                        this.showSubscriptionDialog()
+                    }
+                })
+                .catch(() => {
+                    // Payment is not configured in this installation
+                    // (the Paddle endpoints are unavailable). Fall back to
+                    // allowing the document to be created.
                     this.overview.goToNewDocumentAction(...args)
-                } else {
-                    this.showSubscriptionDialog()
-                }
-            })
+                })
         }
 
         this.overview.importDocumentAction =
@@ -51,12 +59,20 @@ export class PaymentDocumentsOverview {
                 this.overview.mod.actions
             )
         this.overview.mod.actions.importDocument = (...args) =>
-            this.overview.app.getSubscription().then(() => {
-                if (this.canCreateDocument()) {
+            this.overview.app
+                .getSubscription()
+                .then(() => {
+                    if (this.canCreateDocument()) {
+                        return this.overview.importDocumentAction(...args)
+                    } else {
+                        this.showSubscriptionDialog()
+                    }
+                })
+                .catch(() => {
+                    // Payment is not configured in this installation
+                    // (the Paddle endpoints are unavailable). Fall back to
+                    // allowing the document to be imported.
                     return this.overview.importDocumentAction(...args)
-                } else {
-                    this.showSubscriptionDialog()
-                }
-            })
+                })
     }
 }
