@@ -126,7 +126,7 @@ function getFidusWriterPath() {
         }
 
         // Fallback: try to find fiduswriter core by looking in parent directories
-        // Assumes fiduswriter and fiduswriter-payment-paddle are sibling directories
+        // Assumes fiduswriter and fiduswriter-payment-plugin are sibling directories
         const pluginParent = path.resolve(pluginDir, "..")
         const fiduswriterCore = path.join(
             pluginParent,

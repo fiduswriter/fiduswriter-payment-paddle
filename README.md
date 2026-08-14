@@ -1,4 +1,4 @@
-# fiduswriter-payment-paddle
+# fiduswriter-payment-plugin
 
 
 Installation
