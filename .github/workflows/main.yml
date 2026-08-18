@@ -63,7 +63,7 @@ jobs:
         pip install pip --upgrade
         coverage run $(which fiduswriter) setup --no-static
     - name: Run test payment
-      uses: nick-invision/retry@v3
+      uses: nick-invision/retry@v4
       with:
         timeout_minutes: 8
         max_attempts: 3
