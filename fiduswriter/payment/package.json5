@@ -1,5 +1,5 @@
 {
     dependencies: {
-        "@fiduswriter/frontend": "^0.1.46"
+        "@fiduswriter/frontend": "^0.1.53"
     }
 }
